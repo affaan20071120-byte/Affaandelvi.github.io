@@ -3,74 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affaan Portfolio</title>
+  <title>Affaan | Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Drawer Menu -->
-  <div id="drawer" class="drawer">
-    <a href="javascript:void(0)" class="closebtn" onclick="toggleDrawer()">&times;</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <a href="resume.pdf" download>📄 Download Resume</a>
-  </div>
-  <span class="openbtn" onclick="toggleDrawer()">&#9776; Menu</span>
-
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="profile-pic">
-      <img src="assets/profile.jpg" alt="Affaan">
+  <section id="hero">
+    <div class="waves"></div>
+    <div class="hero-content">
+      <img src="dragon.png" alt="Dragon Logo" class="dragon" />
+      <h1>I'm <span>Affaan</span></h1>
+      <p>Aspiring Computer Science Student</p>
+      <div class="scroll-down">&#x25BC;</div>
     </div>
-    <h1>Affaan (The Son of Ahmed)</h1>
-    <h2 class="typing">Aspiring Computer Science Student</h2>
-    <div class="dragon-bg"></div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="section neon-box">
+  <section id="about" data-aos="fade-up">
     <h2>About Me</h2>
-    <p>I'm Affaan (the son of Ahmed), a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity.</p>
+    <div class="box">
+      <p>I'm <strong>Affaan (the son of Ahmed)</strong>, a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity. Whether it's developing web applications, exploring machine learning models, or contributing to open-source projects, I’m always eager to learn and grow.</p>
+    </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="section neon-box">
+  <section id="skills" data-aos="fade-right">
     <h2>Skills</h2>
-    <ul class="skills">
-      <li>🐍 Python</li>
-      <li>🗄 MySQL</li>
-      <li>🎨 Blender</li>
-      <li>🎭 CSS</li>
-    </ul>
+    <div class="box">
+      <ul>
+        <li>🐍 Python</li>
+        <li>🛢️ MySQL</li>
+        <li>🎨 Blender</li>
+        <li>🎨 CSS</li>
+      </ul>
+    </div>
   </section>
 
   <!-- Education Section -->
-  <section id="education" class="section neon-box">
+  <section id="education" data-aos="fade-left">
     <h2>Education</h2>
-    <p>10th Grade: 86% overall</p>
-    <p>Maths: 93% | Science: 90%</p>
+    <div class="box">
+      <p>10th Grade: Overall 86%</p>
+      <p>Maths: 93% | Science: 90%</p>
+      <p>Currently pursuing 12th Grade</p>
+    </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="section neon-box">
+  <section id="projects" data-aos="fade-up">
     <h2>Projects</h2>
-    <div class="project-card" onclick="openModal('snake')">🐍 Snake Game</div>
-    <div class="project-card" onclick="openModal('calc')">🖩 Calculator</div>
+    <div class="box">
+      <button onclick="window.open('snake.html','_blank')">Play Snake Game</button>
+      <button onclick="window.open('calculator.html','_blank')">Open Calculator</button>
+    </div>
   </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section neon-box">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
-    <p>Discord: dragongaming11</p>
-  </section>
-
-  <!-- Modals -->
-  <div id="snake" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('snake')">&times;</span><iframe src="projects/snake.html"></iframe></div></div>
-  <div id="calc" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('calc')">&times;</span><iframe src="projects/calculator.html"></iframe></div></div>
 
   <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 1200 });
+  </script>
 </body>
 </html>

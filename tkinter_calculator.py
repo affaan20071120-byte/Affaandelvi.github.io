@@ -1,22 +1,17 @@
-# Tkinter Calculator (Python) — download version
 import tkinter as tk
-root = tk.Tk(); root.title("Calculator")
-expr=''
-def press(ch):
-    global expr
-    if ch=='C': expr=''; var.set(''); return
-    if ch=='=':
-        try: var.set(str(eval(expr or '0'))); expr=var.get()
-        except: var.set('Error'); expr=''; return
-    else: expr+=ch; var.set(expr)
-var=tk.StringVar()
-tk.Entry(root, textvariable=var, font=('Arial',18), justify='right', bd=6).grid(row=0,column=0,columnspan=4, sticky='nsew', padx=6, pady=6)
-buttons=['7','8','9','/','4','5','6','*','1','2','3','-','C','0','.','+','=']
-r=1;c=0
-for b in buttons:
-    tk.Button(root, text=b, font=('Arial',16), command=lambda x=b:press(x), width=4, height=2).grid(row=r,column=c, padx=4, pady=4, sticky='nsew')
-    c+=1
-    if c==4: c=0; r+=1
-for i in range(5): root.grid_rowconfigure(i, weight=1)
-for i in range(4): root.grid_columnconfigure(i, weight=1)
+root = tk.Tk(); root.title("Affaan Calculator")
+e = tk.Entry(root, justify='right', font=('Arial',18)); e.grid(row=0, column=0, columnspan=4, sticky='nsew')
+btns=['7','8','9','/','4','5','6','*','1','2','3','-','0','.','=','+','C']
+def press(k):
+    if k=='C': e.delete(0,'end'); return
+    if k=='=':
+        try: e.insert('end', '='+str(eval(e.get())))
+        except Exception: e.delete(0,'end'); e.insert(0,'Err')
+        return
+    e.insert('end', k)
+for i,k in enumerate(btns):
+    b=tk.Button(root, text=k, font=('Arial',16), command=lambda k=k: press(k))
+    r=1+i//4; c=i%4; b.grid(row=r,column=c,sticky='nsew', padx=2, pady=2)
+for i in range(4): root.grid_columnconfigure(i,weight=1)
+for i in range(6): root.grid_rowconfigure(i,weight=1)
 root.mainloop()
