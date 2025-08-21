@@ -1,74 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affaan Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Affaan | Portfolio</title>
+<link rel="icon" href="assets/dragon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<script defer src="script.js"></script>
 </head>
 <body>
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <header class="hero">
-    <div class="logo">
-      <img src="dragon.png" alt="Dragon Logo">
-      <h1>Affaan</h1>
-    </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-    </nav>
+    <img class="dragon" src="assets/dragon.png" alt="Dragon Logo">
+    <h1>Affaan</h1>
+    <p class="subtitle">Aspiring Computer Science Student</p>
   </header>
 
-  <section id="about" class="section fade-in">
-    <h2>About Me</h2>
-    <p>
-      I'm <b>Affaan (the son of Ahmed)</b>, a passionate computer science student with a strong foundation in programming, data structures, and software development.
-      I thrive on solving complex problems and building innovative solutions that blend logic with creativity. Whether it's developing web applications, exploring machine learning models, 
-      or contributing to open-source projects, I’m always eager to learn and grow.
-    </p>
-  </section>
+  <main>
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <p>I'm <strong>Affaan (the son of Ahmed)</strong>, a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity. Whether it's developing web applications, exploring machine learning models, or contributing to open-source projects, I’m always eager to learn and grow.</p>
+    </section>
 
-  <section id="skills" class="section fade-in">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <img src="python.png" alt="Python Logo">
-        <p style="color:#3776AB;">Python</p>
-      </div>
-      <div class="skill-card">
-        <img src="mysql.png" alt="MySQL Logo">
-        <p style="color:#4479A1;">MySQL</p>
-      </div>
-      <div class="skill-card">
-        <img src="blender.png" alt="Blender Logo">
-        <p style="color:#F5792A;">Blender</p>
-      </div>
-      <div class="skill-card">
-        <img src="css3.png" alt="CSS3 Logo">
-        <p style="color:#264de4;">CSS3</p>
-      </div>
-    </div>
-  </section>
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <ul class="edu">
+        <li>10th Grade Overall: <strong>86%</strong></li>
+        <li>Mathematics: <strong>93%</strong></li>
+        <li>Science: <strong>90%</strong></li>
+        <li>Currently in <strong>12th Grade</strong></li>
+      </ul>
+    </section>
 
-  <section id="projects" class="section fade-in">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <a href="snake.html" target="_blank" class="project-card">🐍 Snake Game</a>
-      <a href="calculator.html" target="_blank" class="project-card">🧮 Calculator</a>
-    </div>
-  </section>
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill">
+          <span>🐍</span>
+          <label>Python</label>
+        </div>
+        <div class="skill">
+          <span>🛢️</span>
+          <label>MySQL</label>
+        </div>
+        <a class="skill link" href="blender.html" target="_blank" title="Open Blender showcase">
+          <img src="assets/blender.svg" alt="Blender" />
+          <label>Blender</label>
+        </a>
+        <div class="skill">
+          <span>🎭</span>
+          <label>CSS3</label>
+        </div>
+      </div>
+      <small class="hint">Tip: Click the Blender badge to open its showcase page.</small>
+    </section>
 
-  <section id="education" class="section fade-in">
-    <h2>Education</h2>
-    <p>10th Grade: Overall 86%</p>
-    <p>Maths: 93%</p>
-    <p>Science: 90%</p>
-  </section>
+    <section id="projects" class="card">
+      <h2>Projects</h2>
+      <div class="projects">
+        <a class="btn" href="snake.html" target="_blank">🐍 Play Snake Game</a>
+        <a class="btn" href="calculator.html" target="_blank">🧮 Open Calculator (Web)</a>
+        <a class="btn" href="downloads/tkinter_calculator.py" download>⬇️ Download Tkinter Calculator (.py)</a>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 Affaan | Portfolio</p>
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
+      <p>Discord: <strong>dragongaming11</strong></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 2025 Affaan — Built with ❤️ & JavaScript
   </footer>
 </body>
 </html>

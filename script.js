@@ -1,8 +1,5 @@
-document.addEventListener("scroll", () => {
-  document.querySelectorAll(".fade-in").forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 50) {
-      el.classList.add("visible");
-    }
-  });
-});
+// reveal on scroll
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+},{ threshold: 0.12 });
+document.querySelectorAll('.card').forEach(el=>observer.observe(el));

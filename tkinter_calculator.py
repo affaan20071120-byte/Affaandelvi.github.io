@@ -1,17 +1,45 @@
 import tkinter as tk
-root = tk.Tk(); root.title("Affaan Calculator")
-e = tk.Entry(root, justify='right', font=('Arial',18)); e.grid(row=0, column=0, columnspan=4, sticky='nsew')
-btns=['7','8','9','/','4','5','6','*','1','2','3','-','0','.','=','+','C']
-def press(k):
-    if k=='C': e.delete(0,'end'); return
-    if k=='=':
-        try: e.insert('end', '='+str(eval(e.get())))
-        except Exception: e.delete(0,'end'); e.insert(0,'Err')
-        return
-    e.insert('end', k)
-for i,k in enumerate(btns):
-    b=tk.Button(root, text=k, font=('Arial',16), command=lambda k=k: press(k))
-    r=1+i//4; c=i%4; b.grid(row=r,column=c,sticky='nsew', padx=2, pady=2)
-for i in range(4): root.grid_columnconfigure(i,weight=1)
-for i in range(6): root.grid_rowconfigure(i,weight=1)
+
+root = tk.Tk()
+root.title("Affaan Calculator")
+root.geometry("300x380")
+
+display = tk.Entry(root, font=("Arial", 18), bd=8, relief="sunken", justify="right")
+display.pack(fill="x", padx=10, pady=10)
+
+def press(val):
+    display.insert("end", val)
+
+def clear():
+    display.delete(0, "end")
+
+def equals():
+    try:
+        result = str(eval(display.get()))
+        display.delete(0, "end")
+        display.insert(0, result)
+    except Exception:
+        display.delete(0, "end")
+        display.insert(0, "Error")
+
+btns = [
+    ('7','8','9','/'),
+    ('4','5','6','*'),
+    ('1','2','3','-'),
+    ('0','.','=','+'),
+]
+for row in btns:
+    frame = tk.Frame(root)
+    frame.pack(expand=True, fill="both")
+    for text in row:
+        cmd = (lambda t=text: equals()) if text=='=' else (lambda t=text: press(t))
+        if text == 'C':
+            cmd = clear
+        b = tk.Button(frame, text=text, font=("Arial", 16), command=cmd)
+        b.pack(side="left", expand=True, fill="both", padx=2, pady=2)
+
+# Clear button
+clr = tk.Button(root, text="C", font=("Arial", 16), command=clear)
+clr.pack(expand=True, fill="both", padx=10, pady=6)
+
 root.mainloop()

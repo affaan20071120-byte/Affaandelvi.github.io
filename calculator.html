@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><title>Calculator</title></head>
-<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#000;color:#fff;font-family:sans-serif;">
-<div>
-<input id="display" style="width:200px;height:40px;text-align:right;font-size:20px;" readonly><br>
-<div>
-<button onclick="append('1')">1</button>
-<button onclick="append('2')">2</button>
-<button onclick="append('3')">3</button>
-<button onclick="append('+')">+</button><br>
-<button onclick="append('4')">4</button>
-<button onclick="append('5')">5</button>
-<button onclick="append('6')">6</button>
-<button onclick="append('-')">-</button><br>
-<button onclick="append('7')">7</button>
-<button onclick="append('8')">8</button>
-<button onclick="append('9')">9</button>
-<button onclick="append('*')">*</button><br>
-<button onclick="append('0')">0</button>
-<button onclick="clearDisplay()">C</button>
-<button onclick="calculate()">=</button>
-<button onclick="append('/')">/</button>
-</div>
+<html lang="en"><head><meta charset="UTF-8"><title>Calculator</title>
+<style>
+body{background:linear-gradient(-45deg,#000,#0a0f3c,#3b0a45,#0f3057);background-size:400% 400%;animation:bg 14s ease infinite;margin:0;color:#fff;font-family:Inter,system-ui,Arial,sans-serif}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.wrap{max-width:900px;margin:30px auto;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#0b1024cc;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px}
+.btn{display:inline-block;margin-top:10px;padding:10px 12px;border-radius:10px;background:#10214a;border:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none}
+#res{width:100%;height:48px;text-align:right;font-size:20px;margin-bottom:10px}
+button{width:22%;height:40px;margin:2px;border:none;border-radius:8px;background:#152a5a;color:#fff;font-weight:700}
+button:hover{background:#1d3a7a}
+pre{white-space:pre-wrap;overflow:auto;max-height:70vh}
+</style>
+</head><body>
+<div class="wrap">
+  <div class="card">
+    <h2>Web Calculator (JS)</h2>
+    <input id="res" type="text" disabled>
+    <div>
+      <button onclick="a('7')">7</button><button onclick="a('8')">8</button><button onclick="a('9')">9</button><button onclick="a('/')">/</button><br>
+      <button onclick="a('4')">4</button><button onclick="a('5')">5</button><button onclick="a('6')">6</button><button onclick="a('*')">*</button><br>
+      <button onclick="a('1')">1</button><button onclick="a('2')">2</button><button onclick="a('3')">3</button><button onclick="a('-')">-</button><br>
+      <button onclick="a('0')">0</button><button onclick="a('.')">.</button><button onclick="c()">C</button><button onclick="e()">=</button>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Python Tkinter Calculator (Source)</h2>
+    <a class="btn" href="downloads/tkinter_calculator.py" download>⬇️ Download tkinter_calculator.py</a>
+    <pre><code id="pycode"></code></pre>
+  </div>
 </div>
 <script>
-function append(val){document.getElementById('display').value+=val;}
-function clearDisplay(){document.getElementById('display').value='';}
-function calculate(){document.getElementById('display').value=eval(document.getElementById('display').value);}
+function a(v){document.getElementById('res').value+=v;}
+function c(){document.getElementById('res').value='';}
+function e(){try{document.getElementById('res').value=eval(document.getElementById('res').value);}catch(err){alert('Error')}};
+// load python code text
+fetch('downloads/tkinter_calculator.py').then(r=>r.text()).then(t=>document.getElementById('pycode').textContent=t);
 </script>
-</body>
-</html>
+</body></html>
