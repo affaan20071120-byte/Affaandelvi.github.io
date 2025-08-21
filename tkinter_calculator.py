@@ -1,4 +1,4 @@
-# Tkinter Calculator (Python)
+# Tkinter Calculator (Python) — download version
 import tkinter as tk
 root = tk.Tk(); root.title("Calculator")
 expr=''

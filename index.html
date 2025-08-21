@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Affaan · Portfolio</title>
-  <meta name="description" content="Affaan (son of Ahmed) — aspiring Computer Science student. Projects, skills, education, and contact." />
+  <title>Affaan · Portfolio (Animated)</title>
+  <meta name="description" content="Affaan — CS student. Play projects, view skills, education and contact." />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -26,13 +26,15 @@
   <!-- ===== HERO ===== -->
   <section id="home" class="hero section">
     <div class="container hero-grid">
-      <div class="hero-media reveal">
+      <div class="hero-media reveal" data-anim="fade-in-up" data-delay="100">
         <img src="assets/images/dragon_logo.jpg" alt="Affaan dragon logo" class="logo" />
       </div>
-      <div class="hero-text reveal">
-        <h1>Hi, I'm <span>Affaan</span> 🐉</h1>
-        <p class="tagline">Aspiring Computer Science Student — Python · MySQL · Blender · CSS</p>
-        <div class="cta">
+      <div class="hero-text">
+        <h1 class="reveal" data-anim="fade-in-right" data-delay="200">Hi, I'm <span>Affaan</span> 🐉</h1>
+        <p class="tagline reveal" data-anim="fade-in-right" data-delay="350">
+          Aspiring Computer Science Student — Python · MySQL · Blender · CSS
+        </p>
+        <div class="cta reveal" data-anim="zoom-in" data-delay="500">
           <a class="btn primary" href="#projects">Play Projects</a>
           <a class="btn" href="#contact">Contact</a>
         </div>
@@ -43,9 +45,9 @@
 
   <!-- ===== ABOUT ===== -->
   <section id="about" class="section">
-    <div class="container reveal">
-      <h2 class="title">About Me</h2>
-      <p>
+    <div class="container">
+      <h2 class="title reveal" data-anim="fade-in-up">About Me</h2>
+      <p class="reveal" data-anim="fade-in-up" data-delay="120">
         I'm <strong>Affaan</strong> (the son of Ahmed), a passionate computer science student with a strong
         foundation in programming, data structures, and software development. I thrive on solving complex
         problems and building innovative solutions that blend logic with creativity. Whether it's developing
@@ -57,25 +59,25 @@
 
   <!-- ===== SKILLS ===== -->
   <section id="skills" class="section">
-    <div class="container reveal">
-      <h2 class="title">Skills</h2>
+    <div class="container">
+      <h2 class="title reveal" data-anim="fade-in-up">Skills</h2>
       <div class="grid cards">
-        <div class="card">
+        <div class="card reveal" data-anim="flip-in" data-delay="0">
           <div class="icon">🐍</div>
           <h3>Python</h3>
           <p>Scripting, games (Snake), and problem solving.</p>
         </div>
-        <div class="card">
+        <div class="card reveal" data-anim="flip-in" data-delay="120">
           <div class="icon">🛢️</div>
           <h3>MySQL</h3>
           <p>Tables, queries, and relational design.</p>
         </div>
-        <div class="card">
+        <div class="card reveal" data-anim="flip-in" data-delay="240">
           <div class="icon">🧊</div>
           <h3>Blender</h3>
           <p>Basic 3D modeling & simple animations.</p>
         </div>
-        <div class="card">
+        <div class="card reveal" data-anim="flip-in" data-delay="360">
           <div class="icon">🎨</div>
           <h3>CSS</h3>
           <p>Responsive layouts and modern UI.</p>
@@ -86,18 +88,18 @@
 
   <!-- ===== EDUCATION ===== -->
   <section id="education" class="section">
-    <div class="container reveal">
-      <h2 class="title">Education</h2>
+    <div class="container">
+      <h2 class="title reveal" data-anim="fade-in-up">Education</h2>
       <div class="grid edu">
-        <div class="card">
+        <div class="card reveal" data-anim="pop-in" data-delay="0">
           <h3>10th Grade (Overall)</h3>
           <p class="percent">86%</p>
         </div>
-        <div class="card">
+        <div class="card reveal" data-anim="pop-in" data-delay="150">
           <h3>Maths</h3>
           <p class="percent">93%</p>
         </div>
-        <div class="card">
+        <div class="card reveal" data-anim="pop-in" data-delay="300">
           <h3>Science</h3>
           <p class="percent">90%</p>
         </div>
@@ -107,11 +109,11 @@
 
   <!-- ===== PROJECTS ===== -->
   <section id="projects" class="section">
-    <div class="container reveal">
-      <h2 class="title">Projects</h2>
+    <div class="container">
+      <h2 class="title reveal" data-anim="fade-in-up">Projects</h2>
 
       <!-- Playable Snake -->
-      <div class="project playable">
+      <div class="project playable reveal" data-anim="fade-in-up">
         <div class="project-head">
           <h3>🐍 Snake Game (Playable)</h3>
           <div class="actions">
@@ -126,7 +128,7 @@
       </div>
 
       <!-- Playable Calculator -->
-      <div class="project playable">
+      <div class="project playable reveal" data-anim="fade-in-up" data-delay="150">
         <div class="project-head">
           <h3>🧮 Calculator (Playable)</h3>
           <div class="actions">
@@ -141,12 +143,12 @@
 
       <!-- Download-only projects -->
       <div class="grid cards small-reveal">
-        <div class="card">
+        <div class="card reveal" data-anim="fade-in-up" data-delay="0">
           <h3>⚙️ CLI Calculator (Python)</h3>
           <p>Simple terminal calculator for quick operations.</p>
           <a class="btn" href="projects/cli_calculator.py" download>Download</a>
         </div>
-        <div class="card">
+        <div class="card reveal" data-anim="fade-in-up" data-delay="120">
           <h3>☕ Java HelloWorld</h3>
           <p>Tiny Java program to showcase Java basics.</p>
           <a class="btn" href="projects/HelloWorld.java" download>Download</a>
@@ -157,9 +159,9 @@
 
   <!-- ===== CONTACT ===== -->
   <section id="contact" class="section">
-    <div class="container reveal">
-      <h2 class="title">Contact</h2>
-      <div class="card contact">
+    <div class="container">
+      <h2 class="title reveal" data-anim="fade-in-up">Contact</h2>
+      <div class="card contact reveal" data-anim="zoom-in">
         <p>📧 Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
         <p>🕹️ Discord: <strong>dragongaming11</strong></p>
       </div>

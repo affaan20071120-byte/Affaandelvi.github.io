@@ -3,13 +3,19 @@ const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
 menuBtn?.addEventListener('click', ()=> navLinks.classList.toggle('open'));
 
-// Reveal on scroll
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+// Reveal on scroll with delay & custom anims
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const delay = Number(el.getAttribute('data-delay') || 0);
+      setTimeout(()=> el.classList.add('visible'), delay);
+      observer.unobserve(el);
+    }
   });
-}, {threshold: .12});
-document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+}, {threshold: .15});
+
+document.querySelectorAll('.reveal').forEach(el=> observer.observe(el));
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();

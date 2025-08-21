@@ -1,5 +1,5 @@
-# Snake Game (Python - Pygame)
-# Install with: pip install pygame
+# Snake Game (Python - Pygame) — download version
+# pip install pygame
 import pygame, random, sys
 pygame.init()
 W=600; H=600; size=20

@@ -1,4 +1,4 @@
-# CLI Calculator
+# CLI Calculator — download version
 def calc():
     print('1) Add  2) Sub  3) Mul  4) Div')
     op=input('Choose: ')
