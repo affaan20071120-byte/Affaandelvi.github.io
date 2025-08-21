@@ -1,157 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Affaan's neon dragon portfolio v10" />
-  <title>Affaan • Neon Dragon Portfolio</title>
-  <link rel="preload" href="styles.css" as="style">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affaan Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Animated gradient bg + waves -->
-  <div class="bg-grid"></div>
-  <div class="waves" aria-hidden="true">
-    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-      <path class="wave wave-1" d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,154.7C672,128,768,96,864,74.7C960,53,1056,43,1152,64C1248,85,1344,139,1392,165.3L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-      <path class="wave wave-2" d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,154.7C672,128,768,96,864,74.7C960,53,1056,43,1152,64C1248,85,1344,139,1392,165.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-    </svg>
+  <!-- Drawer Menu -->
+  <div id="drawer" class="drawer">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleDrawer()">&times;</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="resume.pdf" download>📄 Download Resume</a>
   </div>
+  <span class="openbtn" onclick="toggleDrawer()">&#9776; Menu</span>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="dragon-wrap">
-      <!-- Glowing/pulsing dragon watermark -->
-      <img src="assets/dragon.svg" alt="" class="dragon" aria-hidden="true" />
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="profile-pic">
+      <img src="assets/profile.jpg" alt="Affaan">
     </div>
-    <div class="hero-inner">
-      <h1 class="glow">Affaan</h1>
-      <h2 class="tagline">
-        <span id="typing"></span><span class="cursor">|</span>
-      </h2>
-      <p class="sub">Dark-neon visuals • Smooth micro-interactions • Python + Design</p>
-      <nav class="cta-row">
-        <a href="#about" class="btn">About</a>
-        <a href="#projects" class="btn alt">Projects</a>
-        <a href="#contact" class="btn">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <h1>Affaan (The Son of Ahmed)</h1>
+    <h2 class="typing">Aspiring Computer Science Student</h2>
+    <div class="dragon-bg"></div>
+  </section>
 
-  <main>
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="card glow-card">
-        <h3>About Me</h3>
-        <p>
-          Hey, I'm Affaan — a student and developer who loves building sleek, animated interfaces and
-          practical Python tools. My vibe is neon-on-dark with a mythical dragon twist 🐉.
-          I enjoy solving problems with clean code, clean design, and a bit of motion magic.
-        </p>
-      </div>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="section neon-box">
+    <h2>About Me</h2>
+    <p>I'm Affaan (the son of Ahmed), a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity.</p>
+  </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-      <h3 class="section-title">Skills</h3>
-      <div class="skill-grid">
-        <div class="skill">
-          <div class="icon" aria-hidden="true">
-            <!-- Python icon -->
-            <svg viewBox="0 0 128 128" role="img">
-              <path d="M63.8 12c-10.7 0-19.4 9-19.4 20.1v11.2h38.8V32.1c0-11.2-8.7-20.1-19.4-20.1zM44.4 54.5H26.8C15.6 54.5 6.7 63.4 6.7 74.6v22.4c0 11.2 8.9 20.1 20.1 20.1H64c10.7 0 19.4-9 19.4-20.1V85.8H44.4v10c0 4-3.3 7.3-7.3 7.3h-2.6c-4 0-7.3-3.3-7.3-7.3V75c0-3.8 3.1-6.9 6.9-6.9h10.3V54.5z"/>
-              <circle cx="52" cy="24" r="6"></circle>
-            </svg>
-          </div>
-          <span>Python</span>
-        </div>
-        <div class="skill">
-          <div class="icon" aria-hidden="true">
-            <!-- MySQL icon -->
-            <svg viewBox="0 0 128 128" role="img">
-              <path d="M12 96c0-28 22.4-52 52-52s52 24 52 52c0 0-16 20-52 20S12 96 12 96z"/>
-              <circle cx="64" cy="96" r="10"></circle>
-            </svg>
-          </div>
-          <span>MySQL</span>
-        </div>
-        <div class="skill">
-          <div class="icon" aria-hidden="true">
-            <!-- Blender icon -->
-            <svg viewBox="0 0 128 128" role="img">
-              <path d="M52 24l36 20-36 20-24-14 24-26z"/>
-              <circle cx="88" cy="64" r="18"></circle>
-            </svg>
-          </div>
-          <span>Blender</span>
-        </div>
-        <div class="skill">
-          <div class="icon" aria-hidden="true">
-            <!-- CSS icon -->
-            <svg viewBox="0 0 128 128" role="img">
-              <path d="M24 16l80 12-10 72-46 12L24 16z"/>
-              <path d="M48 40h34l-2 14H52l3 10h23l-2 14-19 5-9-26" />
-            </svg>
-          </div>
-          <span>CSS</span>
-        </div>
-      </div>
-    </section>
+  <!-- Skills Section -->
+  <section id="skills" class="section neon-box">
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li>🐍 Python</li>
+      <li>🗄 MySQL</li>
+      <li>🎨 Blender</li>
+      <li>🎭 CSS</li>
+    </ul>
+  </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="section">
-      <h3 class="section-title">Education</h3>
-      <div class="edu-card">
-        <div class="edu-item">
-          <h4>10th Grade</h4>
-          <p>Overall: <strong>86%</strong></p>
-          <p>Maths: <strong>93%</strong></p>
-          <p>Science: <strong>90%</strong></p>
-        </div>
-      </div>
-    </section>
+  <!-- Education Section -->
+  <section id="education" class="section neon-box">
+    <h2>Education</h2>
+    <p>10th Grade: 86% overall</p>
+    <p>Maths: 93% | Science: 90%</p>
+  </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <h3 class="section-title">Projects</h3>
-      <div class="cards">
-        <article class="card project">
-          <h4>Snake Game</h4>
-          <p>Classic snake made with Python. Smooth input loop, clean OOP, and retro neon UI.</p>
-          <a class="btn tiny" href="#" aria-disabled="true">Code coming soon</a>
-        </article>
-        <article class="card project">
-          <h4>Tkinter Calculator</h4>
-          <p>Desktop calculator with keyboard support and animated focus states.</p>
-          <a class="btn tiny" href="#" aria-disabled="true">Code coming soon</a>
-        </article>
-        <article class="card project">
-          <h4>Python Calculator</h4>
-          <p>CLI/Module calculator with tests; demonstrates functions and error-handling.</p>
-          <a class="btn tiny" href="#" aria-disabled="true">Code coming soon</a>
-        </article>
-      </div>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects" class="section neon-box">
+    <h2>Projects</h2>
+    <div class="project-card" onclick="openModal('snake')">🐍 Snake Game</div>
+    <div class="project-card" onclick="openModal('calc')">🖩 Calculator</div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h3 class="section-title">Contact</h3>
-      <div class="contact-grid">
-        <a class="contact-card" href="mailto:affaan20071120@gmail.com" target="_blank" rel="noopener">
-          <span class="contact-title">Email</span>
-          <span class="contact-value">affaan20071120@gmail.com</span>
-        </a>
-        <a class="contact-card" href="https://discord.com/users/dragongaming11" target="_blank" rel="noopener">
-          <span class="contact-title">Discord</span>
-          <span class="contact-value">dragongaming11</span>
-        </a>
-      </div>
-    </section>
-  </main>
+  <!-- Contact Section -->
+  <section id="contact" class="section neon-box">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
+    <p>Discord: dragongaming11</p>
+  </section>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> Affaan • Built with neon, waves, and a dragon 🐉</p>
-  </footer>
+  <!-- Modals -->
+  <div id="snake" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('snake')">&times;</span><iframe src="projects/snake.html"></iframe></div></div>
+  <div id="calc" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('calc')">&times;</span><iframe src="projects/calculator.html"></iframe></div></div>
 
   <script src="script.js"></script>
 </body>
