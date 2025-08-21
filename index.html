@@ -7,69 +7,83 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-<header>
-  <div class="logo">
-    <img src="assets/images/dragon_logo.jpg" alt="Affaan Logo" style="width:150px; border-radius:50%;">
-  </div>
-  <h1>Welcome to Affaan's Portfolio</h1>
-  <p>Aspiring Computer Science Student | Python | MySQL | Blender | CSS</p>
-</header>
-
-  <header>
-    <nav>
-      <h1>Affaan</h1>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <!-- Hero Section -->
+  <header class="hero">
+    <img src="assets/images/dragon_logo.jpg" alt="Dragon Logo" class="logo">
+    <h1>I'm Affaan</h1>
+    <p>Aspiring Computer Science Student | Python | MySQL | Blender | CSS</p>
   </header>
 
+  <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
-    <p>I'm Affaan (the son of Ahmed) a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity. Whether it's developing web applications, exploring machine learning models, or contributing to open-source projects, I’m always eager to learn and grow.</p>
+    <p>I'm Affaan (the son of Ahmed), a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity. Whether it's developing web applications, exploring machine learning models, or contributing to open-source projects, I’m always eager to learn and grow.</p>
   </section>
 
+  <!-- Skills Section -->
   <section id="skills">
     <h2>Skills</h2>
-    <ul>
-      <li>🐍 Python</li>
-      <li>🛢 MySQL</li>
-      <li>🎨 Blender</li>
-      <li>💻 CSS</li>
-    </ul>
+    <div class="skills">
+      <div class="skill">🐍 Python</div>
+      <div class="skill">🛢️ MySQL</div>
+      <div class="skill">🎨 Blender</div>
+      <div class="skill">🎭 CSS</div>
+    </div>
   </section>
 
+  <!-- Education Section -->
   <section id="education">
     <h2>Education</h2>
-    <p>10th Grade: 86% overall</p>
-    <p>Maths: 93%</p>
-    <p>Science: 90%</p>
+    <div class="edu-card">
+      <p><strong>10th Grade (Overall):</strong> 86%</p>
+      <p><strong>Maths:</strong> 93%</p>
+      <p><strong>Science:</strong> 90%</p>
+    </div>
   </section>
 
+  <!-- Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
-    <ul>
-      <li>🐍 Snake Game (Python) – <a href="projects/snake_game.py" target="_blank">Preview</a> | <a href="projects/snake_game.py" download>Download</a></li>
-      <li>🖩 Calculator using Tkinter (Python GUI) – <a href="projects/tkinter_calculator.py" target="_blank">Preview</a> | <a href="projects/tkinter_calculator.py" download>Download</a></li>
-      <li>⚡ CLI Calculator (Python) – <a href="projects/cli_calculator.py" target="_blank">Preview</a> | <a href="projects/cli_calculator.py" download>Download</a></li>
-      <li>☕ Java Hello World – <a href="projects/HelloWorld.java" target="_blank">Preview</a> | <a href="projects/HelloWorld.java" download>Download</a></li>
-    </ul>
+
+    <!-- Snake Game -->
+    <div class="project">
+      <h3>🐍 Snake Game</h3>
+      <canvas id="snakeGame" width="400" height="400"></canvas>
+      <p>Score: <span id="score">0</span></p>
+      <a href="projects/snake_game.py" download>Download Python Version</a>
+    </div>
+
+    <!-- Calculator -->
+    <div class="project">
+      <h3>🧮 Calculator</h3>
+      <div id="calculator">
+        <input type="text" id="calc-display" disabled>
+        <div id="calc-buttons"></div>
+      </div>
+      <a href="projects/tkinter_calculator.py" download>Download Python Tkinter Version</a>
+    </div>
+
+    <!-- CLI Calculator -->
+    <div class="project">
+      <h3>⚙️ CLI Calculator (Python)</h3>
+      <a href="projects/cli_calculator.py" download>Download</a>
+    </div>
+
+    <!-- Java HelloWorld -->
+    <div class="project">
+      <h3>☕ Java HelloWorld</h3>
+      <a href="projects/HelloWorld.java" download>Download</a>
+    </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
-    <p>Website: <a href="https://affaandelvi.github.io" target="_blank">Affaandelvi.github.io</a></p>
     <p>Discord: dragongaming11</p>
   </section>
 
-  <footer>
-    <p>© 2025 Affaan. All rights reserved.</p>
-  </footer>
+  <script src="assets/js/snake.js"></script>
+  <script src="assets/js/calculator.js"></script>
 </body>
 </html>

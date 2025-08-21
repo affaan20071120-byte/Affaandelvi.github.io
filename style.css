@@ -1,40 +1,109 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-  color: #333;
-}
-header {
-  background: #222;
-  color: #fff;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-}
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-header nav a {
-  color: #fff;
-  text-decoration: none;
-}
-section {
-  padding: 3rem;
-  max-width: 800px;
-  margin: auto;
-}
-footer {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #000000, #141414);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #f0f0f0;
   text-align: center;
-  padding: 1rem;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+h1, h2 {
+  color: #00e6e6;
+  text-shadow: 0 0 10px #00e6e6;
+}
+
+.hero {
+  padding: 50px;
+}
+
+.logo {
+  width: 120px;
+  border-radius: 50%;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.skill {
+  padding: 10px 20px;
+  border: 2px solid #00e6e6;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00e6e6;
+}
+
+.edu-card {
+  background: #111;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  box-shadow: 0 0 20px rgba(0, 230, 230, 0.6);
+}
+
+.project {
+  margin: 40px auto;
+  padding: 20px;
+  background: #111;
+  border-radius: 10px;
+  width: 70%;
+  box-shadow: 0 0 15px rgba(0, 230, 230, 0.5);
+}
+
+#calculator {
+  margin: auto;
+  width: 200px;
   background: #222;
-  color: #fff;
-  margin-top: 2rem;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#calc-display {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  text-align: right;
+  font-size: 18px;
+}
+
+#calc-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+#calc-buttons button {
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background: #00e6e6;
+  color: black;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#calc-buttons button:hover {
+  background: #00cccc;
 }
