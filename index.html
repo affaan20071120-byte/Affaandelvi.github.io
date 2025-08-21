@@ -3,66 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affaan | Portfolio</title>
+  <title>Affaan Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Hero Section -->
-  <section id="hero">
-    <div class="waves"></div>
-    <div class="hero-content">
-      <img src="dragon.png" alt="Dragon Logo" class="dragon" />
-      <h1>I'm <span>Affaan</span></h1>
-      <p>Aspiring Computer Science Student</p>
-      <div class="scroll-down">&#x25BC;</div>
+  <header class="hero">
+    <div class="logo">
+      <img src="dragon.png" alt="Dragon Logo">
+      <h1>Affaan</h1>
     </div>
-  </section>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+    </nav>
+  </header>
 
-  <!-- About Section -->
-  <section id="about" data-aos="fade-up">
+  <section id="about" class="section fade-in">
     <h2>About Me</h2>
-    <div class="box">
-      <p>I'm <strong>Affaan (the son of Ahmed)</strong>, a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity. Whether it's developing web applications, exploring machine learning models, or contributing to open-source projects, I’m always eager to learn and grow.</p>
-    </div>
+    <p>
+      I'm <b>Affaan (the son of Ahmed)</b>, a passionate computer science student with a strong foundation in programming, data structures, and software development.
+      I thrive on solving complex problems and building innovative solutions that blend logic with creativity. Whether it's developing web applications, exploring machine learning models, 
+      or contributing to open-source projects, I’m always eager to learn and grow.
+    </p>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" data-aos="fade-right">
+  <section id="skills" class="section fade-in">
     <h2>Skills</h2>
-    <div class="box">
-      <ul>
-        <li>🐍 Python</li>
-        <li>🛢️ MySQL</li>
-        <li>🎨 Blender</li>
-        <li>🎨 CSS</li>
-      </ul>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <img src="python.png" alt="Python Logo">
+        <p style="color:#3776AB;">Python</p>
+      </div>
+      <div class="skill-card">
+        <img src="mysql.png" alt="MySQL Logo">
+        <p style="color:#4479A1;">MySQL</p>
+      </div>
+      <div class="skill-card">
+        <img src="blender.png" alt="Blender Logo">
+        <p style="color:#F5792A;">Blender</p>
+      </div>
+      <div class="skill-card">
+        <img src="css3.png" alt="CSS3 Logo">
+        <p style="color:#264de4;">CSS3</p>
+      </div>
     </div>
   </section>
 
-  <!-- Education Section -->
-  <section id="education" data-aos="fade-left">
-    <h2>Education</h2>
-    <div class="box">
-      <p>10th Grade: Overall 86%</p>
-      <p>Maths: 93% | Science: 90%</p>
-      <p>Currently pursuing 12th Grade</p>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" data-aos="fade-up">
+  <section id="projects" class="section fade-in">
     <h2>Projects</h2>
-    <div class="box">
-      <button onclick="window.open('snake.html','_blank')">Play Snake Game</button>
-      <button onclick="window.open('calculator.html','_blank')">Open Calculator</button>
+    <div class="projects-grid">
+      <a href="snake.html" target="_blank" class="project-card">🐍 Snake Game</a>
+      <a href="calculator.html" target="_blank" class="project-card">🧮 Calculator</a>
     </div>
   </section>
 
-  <script src="script.js"></script>
-  <script>
-    AOS.init({ duration: 1200 });
-  </script>
+  <section id="education" class="section fade-in">
+    <h2>Education</h2>
+    <p>10th Grade: Overall 86%</p>
+    <p>Maths: 93%</p>
+    <p>Science: 90%</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Affaan | Portfolio</p>
+  </footer>
 </body>
 </html>
