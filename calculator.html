@@ -33,7 +33,6 @@ pre{white-space:pre-wrap;overflow:auto;max-height:70vh}
 function a(v){document.getElementById('res').value+=v;}
 function c(){document.getElementById('res').value='';}
 function e(){try{document.getElementById('res').value=eval(document.getElementById('res').value);}catch(err){alert('Error')}};
-// load python code text
 fetch('downloads/tkinter_calculator.py').then(r=>r.text()).then(t=>document.getElementById('pycode').textContent=t);
 </script>
 </body></html>

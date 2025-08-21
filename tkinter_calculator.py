@@ -38,7 +38,6 @@ for row in btns:
         b = tk.Button(frame, text=text, font=("Arial", 16), command=cmd)
         b.pack(side="left", expand=True, fill="both", padx=2, pady=2)
 
-# Clear button
 clr = tk.Button(root, text="C", font=("Arial", 16), command=clear)
 clr.pack(expand=True, fill="both", padx=10, pady=6)
 
