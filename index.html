@@ -1,89 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affaan's Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Affaan · Portfolio</title>
+  <meta name="description" content="Affaan (son of Ahmed) — aspiring Computer Science student. Projects, skills, education, and contact." />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- Hero Section -->
-  <header class="hero">
-    <img src="assets/images/dragon_logo.jpg" alt="Dragon Logo" class="logo">
-    <h1>I'm Affaan</h1>
-    <p>Aspiring Computer Science Student | Python | MySQL | Blender | CSS</p>
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">Affaan</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
   </header>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I'm Affaan (the son of Ahmed), a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity. Whether it's developing web applications, exploring machine learning models, or contributing to open-source projects, I’m always eager to learn and grow.</p>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="skill">🐍 Python</div>
-      <div class="skill">🛢️ MySQL</div>
-      <div class="skill">🎨 Blender</div>
-      <div class="skill">🎭 CSS</div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="edu-card">
-      <p><strong>10th Grade (Overall):</strong> 86%</p>
-      <p><strong>Maths:</strong> 93%</p>
-      <p><strong>Science:</strong> 90%</p>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <!-- Snake Game -->
-    <div class="project">
-      <h3>🐍 Snake Game</h3>
-      <canvas id="snakeGame" width="400" height="400"></canvas>
-      <p>Score: <span id="score">0</span></p>
-      <a href="projects/snake_game.py" download>Download Python Version</a>
-    </div>
-
-    <!-- Calculator -->
-    <div class="project">
-      <h3>🧮 Calculator</h3>
-      <div id="calculator">
-        <input type="text" id="calc-display" disabled>
-        <div id="calc-buttons"></div>
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero section">
+    <div class="container hero-grid">
+      <div class="hero-media reveal">
+        <img src="assets/images/dragon_logo.jpg" alt="Affaan dragon logo" class="logo" />
       </div>
-      <a href="projects/tkinter_calculator.py" download>Download Python Tkinter Version</a>
+      <div class="hero-text reveal">
+        <h1>Hi, I'm <span>Affaan</span> 🐉</h1>
+        <p class="tagline">Aspiring Computer Science Student — Python · MySQL · Blender · CSS</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">Play Projects</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
     </div>
+    <div class="hero-glow"></div>
+  </section>
 
-    <!-- CLI Calculator -->
-    <div class="project">
-      <h3>⚙️ CLI Calculator (Python)</h3>
-      <a href="projects/cli_calculator.py" download>Download</a>
-    </div>
-
-    <!-- Java HelloWorld -->
-    <div class="project">
-      <h3>☕ Java HelloWorld</h3>
-      <a href="projects/HelloWorld.java" download>Download</a>
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section">
+    <div class="container reveal">
+      <h2 class="title">About Me</h2>
+      <p>
+        I'm <strong>Affaan</strong> (the son of Ahmed), a passionate computer science student with a strong
+        foundation in programming, data structures, and software development. I thrive on solving complex
+        problems and building innovative solutions that blend logic with creativity. Whether it's developing
+        web applications, exploring machine learning models, or contributing to open‑source projects, I’m
+        always eager to learn and grow.
+      </p>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
-    <p>Discord: dragongaming11</p>
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section">
+    <div class="container reveal">
+      <h2 class="title">Skills</h2>
+      <div class="grid cards">
+        <div class="card">
+          <div class="icon">🐍</div>
+          <h3>Python</h3>
+          <p>Scripting, games (Snake), and problem solving.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛢️</div>
+          <h3>MySQL</h3>
+          <p>Tables, queries, and relational design.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧊</div>
+          <h3>Blender</h3>
+          <p>Basic 3D modeling & simple animations.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🎨</div>
+          <h3>CSS</h3>
+          <p>Responsive layouts and modern UI.</p>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education" class="section">
+    <div class="container reveal">
+      <h2 class="title">Education</h2>
+      <div class="grid edu">
+        <div class="card">
+          <h3>10th Grade (Overall)</h3>
+          <p class="percent">86%</p>
+        </div>
+        <div class="card">
+          <h3>Maths</h3>
+          <p class="percent">93%</p>
+        </div>
+        <div class="card">
+          <h3>Science</h3>
+          <p class="percent">90%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section">
+    <div class="container reveal">
+      <h2 class="title">Projects</h2>
+
+      <!-- Playable Snake -->
+      <div class="project playable">
+        <div class="project-head">
+          <h3>🐍 Snake Game (Playable)</h3>
+          <div class="actions">
+            <a class="btn" href="projects/snake_game.py" download>Download Python</a>
+          </div>
+        </div>
+        <canvas id="snakeCanvas" width="520" height="520" class="game"></canvas>
+        <div class="hud">
+          <span>Score: <strong id="score">0</strong></span>
+          <button class="btn tiny" id="restartSnake">Restart</button>
+        </div>
+      </div>
+
+      <!-- Playable Calculator -->
+      <div class="project playable">
+        <div class="project-head">
+          <h3>🧮 Calculator (Playable)</h3>
+          <div class="actions">
+            <a class="btn" href="projects/tkinter_calculator.py" download>Download Tkinter</a>
+          </div>
+        </div>
+        <div id="calculator" class="calc">
+          <input id="calcDisplay" type="text" placeholder="0" disabled />
+          <div class="keys" id="calcKeys"></div>
+        </div>
+      </div>
+
+      <!-- Download-only projects -->
+      <div class="grid cards small-reveal">
+        <div class="card">
+          <h3>⚙️ CLI Calculator (Python)</h3>
+          <p>Simple terminal calculator for quick operations.</p>
+          <a class="btn" href="projects/cli_calculator.py" download>Download</a>
+        </div>
+        <div class="card">
+          <h3>☕ Java HelloWorld</h3>
+          <p>Tiny Java program to showcase Java basics.</p>
+          <a class="btn" href="projects/HelloWorld.java" download>Download</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section">
+    <div class="container reveal">
+      <h2 class="title">Contact</h2>
+      <div class="card contact">
+        <p>📧 Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
+        <p>🕹️ Discord: <strong>dragongaming11</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Affaan · Built with ❤️</p>
+    </div>
+  </footer>
 
   <script src="assets/js/snake.js"></script>
   <script src="assets/js/calculator.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

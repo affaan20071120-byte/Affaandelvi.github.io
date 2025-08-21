@@ -1,72 +1,86 @@
-const canvas = document.getElementById("snakeGame");
-const ctx = canvas.getContext("2d");
-const box = 20;
-let snake = [{x: 9*box, y: 10*box}];
-let direction;
-let food = {
-  x: Math.floor(Math.random()*19+1)*box,
-  y: Math.floor(Math.random()*19+1)*box
-};
+const canvas = document.getElementById('snakeCanvas');
+const ctx = canvas.getContext('2d');
+const size = 20;
+let dir = 'RIGHT';
+let snake = [{x: 5, y: 5}];
+let food = {x: 10, y: 10};
 let score = 0;
+let loop;
 
-document.addEventListener("keydown", directionHandler);
-function directionHandler(event) {
-  if(event.keyCode == 37 && direction != "RIGHT") direction = "LEFT";
-  else if(event.keyCode == 38 && direction != "DOWN") direction = "UP";
-  else if(event.keyCode == 39 && direction != "LEFT") direction = "RIGHT";
-  else if(event.keyCode == 40 && direction != "UP") direction = "DOWN";
+function rand(max){ return Math.floor(Math.random()*max); }
+
+function placeFood(){
+  food = { x: rand(canvas.width/size)|0, y: rand(canvas.height/size)|0 };
 }
 
-function draw() {
-  ctx.fillStyle = "#000";
-  ctx.fillRect(0, 0, 400, 400);
+function drawCell(x,y,color){
+  ctx.fillStyle = color;
+  ctx.fillRect(x*size, y*size, size-2, size-2);
+}
 
-  for(let i=0; i<snake.length; i++){
-    ctx.fillStyle = (i==0)? "#00e6e6" : "#00cccc";
-    ctx.fillRect(snake[i].x, snake[i].y, box, box);
-    ctx.strokeStyle = "#111";
-    ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+function step(){
+  // background grid
+  ctx.fillStyle = '#050607';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  // move snake
+  const head = { ...snake[0] };
+  if(dir === 'LEFT') head.x--;
+  if(dir === 'RIGHT') head.x++;
+  if(dir === 'UP') head.y--;
+  if(dir === 'DOWN') head.y++;
+
+  // wall wrap for smoother gameplay
+  const maxX = (canvas.width/size)|0;
+  const maxY = (canvas.height/size)|0;
+  head.x = (head.x + maxX) % maxX;
+  head.y = (head.y + maxY) % maxY;
+
+  // collision with self
+  if(snake.some((s,i)=> i && s.x===head.x && s.y===head.y)){
+    end();
+    return;
   }
 
-  ctx.fillStyle = "#ff3333";
-  ctx.fillRect(food.x, food.y, box, box);
-
-  let snakeX = snake[0].x;
-  let snakeY = snake[0].y;
-
-  if(direction == "LEFT") snakeX -= box;
-  if(direction == "UP") snakeY -= box;
-  if(direction == "RIGHT") snakeX += box;
-  if(direction == "DOWN") snakeY += box;
-
-  if(snakeX == food.x && snakeY == food.y){
+  // eat
+  if(head.x===food.x && head.y===food.y){
     score++;
-    document.getElementById("score").innerText = score;
-    food = {
-      x: Math.floor(Math.random()*19+1)*box,
-      y: Math.floor(Math.random()*19+1)*box
-    };
-  } else {
+    document.getElementById('score').textContent = score;
+    snake.unshift(head);
+    placeFood();
+  }else{
     snake.pop();
+    snake.unshift(head);
   }
 
-  let newHead = {x: snakeX, y: snakeY};
+  // draw food
+  drawCell(food.x, food.y, '#ff3b3b');
 
-  if(snakeX < 0 || snakeY < 0 || snakeX >= 400 || snakeY >= 400 || collision(newHead, snake)){
-    clearInterval(game);
-    alert("Game Over! Final Score: " + score);
-  }
-
-  snake.unshift(newHead);
+  // draw snake
+  snake.forEach((s,i)=> drawCell(s.x, s.y, i? '#00cccc':'#00e6e6'));
 }
 
-function collision(head, array){
-  for(let i=0; i<array.length; i++){
-    if(head.x == array[i].x && head.y == array[i].y){
-      return true;
-    }
-  }
-  return false;
+function end(){
+  clearInterval(loop);
+  alert('Game over! Score: ' + score);
 }
 
-let game = setInterval(draw, 100);
+function start(){
+  clearInterval(loop);
+  score = 0;
+  snake = [{x:5,y:5}];
+  dir = 'RIGHT';
+  placeFood();
+  document.getElementById('score').textContent = score;
+  loop = setInterval(step, 110);
+}
+
+document.getElementById('restartSnake').addEventListener('click', start);
+window.addEventListener('keydown', e=>{
+  const k = e.key.toLowerCase();
+  if((k==='arrowleft'||k==='a') && dir!=='RIGHT') dir='LEFT';
+  if((k==='arrowright'||k==='d') && dir!=='LEFT') dir='RIGHT';
+  if((k==='arrowup'||k==='w') && dir!=='DOWN') dir='UP';
+  if((k==='arrowdown'||k==='s') && dir!=='UP') dir='DOWN';
+});
+start();
