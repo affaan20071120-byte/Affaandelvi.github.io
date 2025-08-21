@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Affaan | Portfolio</title>
+  <meta name="description" content="Affaan - Aspiring Computer Science student. Portfolio showcasing skills, education, and projects." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ====== NAVBAR ====== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">Affaan</a>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="menuBtn" class="menu-btn" aria-label="Open Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section id="home" class="section hero">
+    <div class="container hero-inner">
+      <img src="assets/img/profile.svg" alt="Affaan profile" class="avatar" />
+      <div class="hero-text">
+        <h1>Hi, I'm <span>Affaan</span> 👋</h1>
+        <p class="tagline">Aspiring Computer Science Student</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">See Projects</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ABOUT ====== -->
+  <section id="about" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I'm <strong>Affaan</strong>, an aspiring Computer Science student (currently in 12th grade). I love
+        coding, problem‑solving, and building creative things. I enjoy Python the most and I’m always
+        learning new tech to bring ideas to life.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====== SKILLS ====== -->
+  <section id="skills" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="grid cards">
+        <div class="card">
+          <div class="icon">🐍</div>
+          <h3>Python</h3>
+          <p>Comfortable building scripts and games (like Snake) and exploring libraries.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛢️</div>
+          <h3>MySQL</h3>
+          <p>Designing tables, writing queries, and working with relational data.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧊</div>
+          <h3>Blender</h3>
+          <p>Basic 3D modeling and simple animations for visuals and assets.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🎨</div>
+          <h3>CSS</h3>
+          <p>Responsive layouts, modern styling, and clean UI components.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== EDUCATION ====== -->
+  <section id="education" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="grid cards">
+        <div class="card">
+          <h3>Class 12</h3>
+          <p>Currently pursuing 12th (Computer Science stream).</p>
+        </div>
+        <div class="card">
+          <h3>Class 10</h3>
+          <p>Completed with <strong>86%</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PROJECTS ====== -->
+  <section id="projects" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid cards">
+        <div class="card">
+          <h3>Snake Game (Python)</h3>
+          <p>A classic snake game built using Python (Pygame). Features increasing difficulty and score tracking.</p>
+          <div class="actions">
+            <a class="btn" href="#" target="_blank" rel="noopener">GitHub (add link)</a>
+          </div>
+        </div>
+        <!-- Add more project cards as you build them -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section id="contact" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-card card">
+        <p>📧 Email: <a href="mailto:affaan@example.com">affaan@example.com</a></p>
+        <p>🌐 GitHub: <a href="#" target="_blank" rel="noopener">Add your GitHub link</a></p>
+        <p>💼 LinkedIn: <a href="#" target="_blank" rel="noopener">Add your LinkedIn link</a></p>
+        <a class="btn" href="assets/Affaan-Resume.pdf" download>Download Resume (replace file)</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Affaan · Made with ❤️</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
