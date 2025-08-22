@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><title>Snake Game</title>
-<style>body{background:#000;margin:0;display:flex;justify-content:center;align-items:center;height:100vh;color:#fff}canvas{background:#111;box-shadow:0 0 20px #60a5fa;border-radius:8px}</style>
+<style>body{background:#000;margin:0;display:flex;justify-content:center;align-items:center;height:100vh;color:#fff}canvas{background:#111;box-shadow:0 0 20px #3b82f6;border-radius:8px}</style>
 </head><body>
 <canvas id="game" width="400" height="400"></canvas>
 <script>
@@ -9,8 +9,8 @@ let snake=[{x:9*s,y:10*s}],dir='RIGHT',food={x:~~(Math.random()*19+1)*s,y:~~(Mat
 document.addEventListener('keydown',e=>{if(e.keyCode==37&&dir!=='RIGHT')dir='LEFT';if(e.keyCode==38&&dir!=='DOWN')dir='UP';if(e.keyCode==39&&dir!=='LEFT')dir='RIGHT';if(e.keyCode==40&&dir!=='UP')dir='DOWN';});
 function tick(){
   x.fillStyle='#111';x.fillRect(0,0,400,400);
-  snake.forEach((p,i)=>{x.fillStyle=i? '#9efcff':'#60a5fa';x.fillRect(p.x,p.y,s,s);});
-  x.fillStyle='#ff3b3b';x.fillRect(food.x,food.y,s,s);
+  snake.forEach((p,i)=>{x.fillStyle=i? '#fff':'#3b82f6';x.fillRect(p.x,p.y,s,s);});
+  x.fillStyle='#ef4444';x.fillRect(food.x,food.y,s,s);
   let nx=snake[0].x+(dir=='LEFT'?-s:dir=='RIGHT'?s:0);
   let ny=snake[0].y+(dir=='UP'?-s:dir=='DOWN'?s:0);
   if(nx==food.x&&ny==food.y){food={x:~~(Math.random()*19+1)*s,y:~~(Math.random()*19+1)*s};}

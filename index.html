@@ -1,107 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Affaan | Portfolio</title>
-  <link rel="icon" href="assets/dragon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/script.js"></script>
 </head>
 <body>
-  <nav class="nav">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+  <nav class="sidebar">
+    <div class="logo">
+      <img src="assets/images/dragon.png" alt="Dragon"> <span>Affaan</span>
+    </div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <header class="hero" id="home">
-    <img src="assets/dragon.png" alt="Dragon Logo" class="logo">
-    <h1>I'm Affaan</h1>
-    <p class="tag">Aspiring Computer Science Student — Python · MySQL · Blender · CSS</p>
-  </header>
+  <main>
+    <header class="hero">
+      <div>
+        <img src="assets/images/dragon.png" alt="Dragon Logo">
+        <h1>I'm Affaan</h1>
+        <p>Aspiring Computer Science Student — Python · MySQL · Blender · CSS — Good in GUI interfaces</p>
+      </div>
+    </header>
 
-  <img class="divider" src="assets/waves.svg" alt="divider">
+    <img class="divider" src="assets/waves.svg" alt="divider">
 
-  <main class="wrapper">
-    <section id="about" class="section">
-      <div class="card">
-        <h2>About Me</h2>
-        <p>I'm <strong>Affaan (the son of Ahmed)</strong>, a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity. Whether it's developing web applications, exploring machine learning models, or contributing to open-source projects, I’m always eager to learn and grow.</p>
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <p>I'm <strong>Affaan (the son of Ahmed)</strong>, a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity. I'm also <strong>good in GUI development</strong> and love exploring interactive interfaces.</p>
+    </section>
+
+    <img class="divider" src="assets/waves.svg" alt="divider">
+
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+      <p>I am good in <strong>SQL</strong> and <strong>Python</strong>, and I also work with <strong>Blender</strong> and <strong>CSS</strong>.</p>
+      <div class="grid skills">
+        <a class="skill" href="https://www.python.org" target="_blank" rel="noopener">
+          <img src="assets/images/python.png" alt="Python"><label>Python</label>
+        </a>
+        <a class="skill" href="https://www.mysql.com" target="_blank" rel="noopener">
+          <img src="assets/images/mysql.png" alt="MySQL"><label>MySQL</label>
+        </a>
+        <a class="skill" href="blender.html" target="_blank" rel="noopener">
+          <img src="assets/images/blender.png" alt="Blender"><label>Blender (3D Viewer)</label>
+        </a>
+        <a class="skill" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">
+          <img src="assets/images/Css3.png" alt="CSS3"><label>CSS</label>
+        </a>
       </div>
     </section>
 
     <img class="divider" src="assets/waves.svg" alt="divider">
 
-    <section id="education" class="section">
-      <div class="card">
-        <h2>Education</h2>
-        <ul>
-          <li>10th Grade Overall: <strong>86%</strong></li>
-          <li>Mathematics: <strong>93%</strong></li>
-          <li>Science: <strong>90%</strong></li>
-          <li>Currently in <strong>12th Grade</strong></li>
-        </ul>
+    <section id="projects" class="card">
+      <h2>Projects</h2>
+      <p>Open the demos in a new tab:</p>
+      <div class="actions">
+        <a class="btn" href="projects/snake.html" target="_blank" rel="noopener">🐍 Play Snake Game</a>
+        <a class="btn" href="projects/calculator.html" target="_blank" rel="noopener">🧮 Open Calculator</a>
       </div>
     </section>
 
     <img class="divider" src="assets/waves.svg" alt="divider">
 
-    <section id="skills" class="section">
-      <div class="card">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-          <a class="skill" href="https://www.python.org" target="_blank" rel="noopener">
-            <img src="assets/python.png" alt="Python" />
-            <label>Python</label>
-          </a>
-          <a class="skill" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">
-            <img src="assets/Css3.png" alt="CSS3" />
-            <label>CSS</label>
-          </a>
-          <a class="skill" href="https://www.blender.org" target="_blank" rel="noopener">
-            <img src="assets/blender.png" alt="Blender" />
-            <label>Blender</label>
-          </a>
-          <a class="skill" href="https://www.mysql.com" target="_blank" rel="noopener">
-            <img src="assets/mysql.png" alt="MySQL" />
-            <label>MySQL</label>
-          </a>
-        </div>
-      </div>
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <ul>
+        <li>10th Overall: <strong>86%</strong></li>
+        <li>Maths: <strong>93%</strong></li>
+        <li>Science: <strong>90%</strong></li>
+        <li>Currently in <strong>12th Grade</strong></li>
+      </ul>
     </section>
 
     <img class="divider" src="assets/waves.svg" alt="divider">
 
-    <section id="projects" class="section">
-      <div class="card">
-        <h2>Projects</h2>
-        <p>Quick demos (open in a new tab):</p>
-        <div class="project-links">
-          <a class="btn" href="snake.html" target="_blank" rel="noopener">🐍 Play Snake Game</a>
-          <a class="btn" href="calculator.html" target="_blank" rel="noopener">🧮 Open Web Calculator</a>
-        </div>
-      </div>
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Email: <a class="btn" href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
+      <p>Discord: <strong>dragongaming11</strong></p>
     </section>
 
-    <img class="divider" src="assets/waves.svg" alt="divider">
-
-    <section id="contact" class="section">
-      <div class="card">
-        <h2>Contact</h2>
-        <p>Email: <a class="btn" href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
-        <p>Discord: <strong>dragongaming11</strong></p>
-      </div>
-    </section>
+    <footer class="footer">© 2025 Affaan — Built with ❤️</footer>
   </main>
-
-  <footer class="footer">
-    © 2025 Affaan — Built with ❤️ & JavaScript
-  </footer>
 </body>
 </html>
