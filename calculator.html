@@ -1,69 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scientific Calculator</title>
-  <style>
-    body { background:black; color:white; display:flex; justify-content:center; align-items:center; height:100vh; }
-    .calculator { background:#222; padding:20px; border-radius:15px; box-shadow:0 0 20px cyan; }
-    input { width:100%; margin-bottom:10px; padding:10px; font-size:20px; border:none; text-align:right; }
-    .buttons { display:grid; grid-template-columns: repeat(5, 1fr); gap:10px; }
-    button { padding:15px; font-size:18px; border:none; border-radius:8px; background:#333; color:white; box-shadow:0 0 10px #0ff; }
-    button:hover { background:#555; }
-  </style>
+<meta charset="UTF-8">
+<title>Scientific Calculator</title>
+<style>
+body { display:flex; justify-content:center; align-items:center; height:100vh; background:black; color:white; font-family:Arial;}
+.calculator { border:2px solid #fff; padding:20px; border-radius:10px; box-shadow:0 0 20px #0ff;}
+#result { width:100%; height:40px; margin-bottom:10px; text-align:right; padding:5px; font-size:18px;}
+button { width:70px; height:40px; margin:5px; font-size:16px; border:none; border-radius:5px; background:#111; color:white; box-shadow:0 0 10px cyan; cursor:pointer;}
+button:hover { background:#333; }
+</style>
 </head>
 <body>
-  <div class="calculator">
-    <input type="text" id="display" readonly>
-    <div class="buttons">
-      <button onclick="clearDisplay()">C</button>
-      <button onclick="append('(')">(</button>
-      <button onclick="append(')')">)</button>
-      <button onclick="append('/')">÷</button>
-      <button onclick="append('*')">×</button>
-      <button onclick="append('7')">7</button>
-      <button onclick="append('8')">8</button>
-      <button onclick="append('9')">9</button>
-      <button onclick="append('-')">-</button>
-      <button onclick="append('+')">+</button>
-      <button onclick="append('4')">4</button>
-      <button onclick="append('5')">5</button>
-      <button onclick="append('6')">6</button>
-      <button onclick="append('.')">.</button>
-      <button onclick="calculate()">=</button>
-      <button onclick="append('1')">1</button>
-      <button onclick="append('2')">2</button>
-      <button onclick="append('3')">3</button>
-      <button onclick="append('0')">0</button>
-      <button onclick="append('%')">%</button>
-      <button onclick="append('Math.sin(')">sin</button>
-      <button onclick="append('Math.cos(')">cos</button>
-      <button onclick="append('Math.tan(')">tan</button>
-      <button onclick="append('Math.log10(')">log</button>
-      <button onclick="append('Math.log(')">ln</button>
-      <button onclick="append('Math.PI')">π</button>
-      <button onclick="append('Math.E')">e</button>
-      <button onclick="append('Math.sqrt(')">√</button>
-      <button onclick="append('Math.pow(')">x^y</button>
-      <button onclick="toggleDegRad()">Deg/Rad</button>
-    </div>
+<div class="calculator">
+  <input type="text" id="result" readonly>
+  <div>
+    <button onclick="clearResult()">C</button>
+    <button onclick="append('/')">/</button>
+    <button onclick="append('*')">*</button>
+    <button onclick="back()">←</button>
   </div>
-  <script>
-    let display=document.getElementById('display');
-    let isDeg=true;
-    function append(val){display.value+=val;}
-    function clearDisplay(){display.value='';}
-    function calculate(){
-      try{display.value=eval(display.value);}catch{display.value='Error';}
-    }
-    function toggleDegRad(){
-      isDeg=!isDeg; alert("Mode: "+(isDeg?"Degrees":"Radians"));
-    }
-    Math.sin=function(x){return isDeg?Math.__sin(x*Math.PI/180):Math.__sin(x);}
-    Math.cos=function(x){return isDeg?Math.__cos(x*Math.PI/180):Math.__cos(x);}
-    Math.tan=function(x){return isDeg?Math.__tan(x*Math.PI/180):Math.__tan(x);}
-    Math.__sin=Math.sin; Math.__cos=Math.cos; Math.__tan=Math.tan;
-  </script>
+  <div>
+    <button onclick="append('7')">7</button>
+    <button onclick="append('8')">8</button>
+    <button onclick="append('9')">9</button>
+    <button onclick="append('-')">-</button>
+  </div>
+  <div>
+    <button onclick="append('4')">4</button>
+    <button onclick="append('5')">5</button>
+    <button onclick="append('6')">6</button>
+    <button onclick="append('+')">+</button>
+  </div>
+  <div>
+    <button onclick="append('1')">1</button>
+    <button onclick="append('2')">2</button>
+    <button onclick="append('3')">3</button>
+    <button onclick="calculate()">=</button>
+  </div>
+  <div>
+    <button onclick="append('0')">0</button>
+    <button onclick="append('.')">.</button>
+    <button onclick="append('(')">(</button>
+    <button onclick="append(')')">)</button>
+  </div>
+  <div>
+    <button onclick="append('Math.sin(toRadians(')">sin(</button>
+    <button onclick="append('Math.cos(toRadians(')">cos(</button>
+    <button onclick="append('Math.tan(toRadians(')">tan(</button>
+    <button onclick="append('Math.log10(')">log(</button>
+  </div>
+  <div>
+    <button onclick="append('Math.log(')">ln(</button>
+    <button onclick="append('Math.sqrt(')">√</button>
+    <button onclick="append('Math.pow(')">pow(</button>
+    <button onclick="degRad()">Deg/Rad</button>
+  </div>
+</div>
+<script>
+let input=document.getElementById('result');
+let isDeg=true;
+function append(value){ input.value+=value;}
+function clearResult(){ input.value="";}
+function back(){ input.value=input.value.slice(0,-1);}
+function calculate(){
+  try{ input.value=eval(input.value);}catch(e){ input.value="Error";}
+}
+function toRadians(val){ return isDeg? val*Math.PI/180: val;}
+function degRad(){ isDeg=!isDeg; alert(isDeg?"Mode: Degrees":"Mode: Radians");}
+</script>
 </body>
 </html>

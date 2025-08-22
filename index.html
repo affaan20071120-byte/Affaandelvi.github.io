@@ -1,82 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Affaan Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <canvas id="bg"></canvas>
-  <header>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <nav id="sideMenu">
-      <a href="#about">About Me</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <!-- Drawer Menu -->
+  <div id="menu" class="drawer">
+    <button onclick="toggleMenu()" class="close-btn">&times;</button>
+    <a href="#about">About Me</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="open-btn" onclick="toggleMenu()">☰ Menu</button>
+
+  <!-- Galaxy Background Canvas -->
+  <canvas id="bgCanvas"></canvas>
 
   <main>
-    <section id="intro">
-      <h1 class="glow">Affaan</h1>
-      <p class="subtitle">Son of Ahmed</p>
+    <section class="hero">
+      <h1 class="glow-red">Affaan son of Ahmed</h1>
     </section>
 
-    <section id="about" class="box">
+    <section id="about" class="card">
       <h2>About Me</h2>
-      <p>I am an aspiring Computer Science student passionate about technology, coding, and problem solving. 
-      I started programming in Python from Grade 9 and have since expanded into databases, web design, and creative 3D tools like Blender. 
-      My focus is on building innovative projects while continuously learning and exploring new technologies.</p>
+      <p>I am an aspiring Computer Science student with a strong foundation in programming, problem solving, and creativity. I have been coding since grade 9, exploring technologies like Python, MySQL, and building practical projects like games and calculators. My goal is to pursue software engineering and create impactful solutions.</p>
     </section>
 
-    <section id="education" class="box">
+    <section id="education" class="card">
       <h2>Education</h2>
-      <p>Currently in Class 12 (2024 - 2025)<br>
-      Class 10: Overall 86% (Maths: 93%, Science: 90%)</p>
+      <p><b>Class 12</b> (2024–2025) – Currently enrolled</p>
+      <p><b>Class 10</b> – Overall 86% | Maths 93% | Science 90%</p>
     </section>
 
-    <section id="skills" class="box">
+    <section id="skills" class="card">
       <h2>Skills</h2>
-      <div class="skills-grid">
-        <a href="https://www.python.org" target="_blank" class="skill-card glow-python">
-          <img src="assets/python.png" alt="Python">
-          <p>Python (using since Grade 9)</p>
-        </a>
-        <a href="https://www.mysql.com" target="_blank" class="skill-card glow-mysql">
-          <img src="assets/mysql.png" alt="MySQL">
-          <p>MySQL (databases and queries)</p>
-        </a>
-        <a href="https://www.blender.org" target="_blank" class="skill-card glow-blender">
-          <img src="assets/blender.png" alt="Blender">
-          <p>Blender (3D models & creativity)</p>
-        </a>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="skill-card glow-css">
-          <img src="assets/css3.png" alt="CSS3">
-          <p>CSS (design & styling)</p>
-        </a>
+      <div class="skill-card">
+        <a href="https://www.python.org" target="_blank"><img src="https://www.python.org/static/community_logos/python-logo-generic.svg" alt="Python Logo"></a>
+        <p>Using Python since Grade 9. Built multiple projects including games and utilities.</p>
+      </div>
+      <div class="skill-card">
+        <a href="https://www.blender.org" target="_blank"><img src="https://download.blender.org/branding/blender_logo.svg" alt="Blender Logo"></a>
+        <p>Experienced in Blender for creating 3D models and rendering graphics.</p>
+      </div>
+      <div class="skill-card">
+        <a href="https://www.mysql.com" target="_blank"><img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="MySQL Logo"></a>
+        <p>Database design and management with MySQL for structured data applications.</p>
+      </div>
+      <div class="skill-card">
+        <a href="https://www.w3.org/Style/CSS/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS Logo"></a>
+        <p>Building beautiful and responsive designs with modern CSS techniques.</p>
       </div>
     </section>
 
-    <section id="projects" class="box">
+    <section id="projects" class="card">
       <h2>Projects</h2>
-      <ul>
-        <li><a href="games/snake.html" target="_blank">Snake Game</a></li>
-        <li><a href="games/calculator.html" target="_blank">Scientific Calculator</a></li>
-      </ul>
-      <p>More projects coming soon...</p>
+      <p><a href="snake.html" target="_blank">Snake Game</a></p>
+      <p><a href="calculator.html" target="_blank">Scientific Calculator</a></p>
+      <p><i>More projects coming soon…</i></p>
     </section>
 
-    <section id="contact" class="box">
+    <section id="contact" class="card">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
-      <p>GitHub: <a href="https://affaandelvi.github.io" target="_blank">AffaanDelvi</a></p>
+      <p>GitHub: <a href="https://affaandelvi.github.io" target="_blank">Affaandelvi.github.io</a></p>
       <p>Discord: dragongaming11</p>
     </section>
-  </main>
 
-  <script src="script.js"></script>
+    <button onclick="scrollToTop()" class="top-btn">⬆ Back to Top</button>
+  </main>
 </body>
 </html>
