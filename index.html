@@ -3,68 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affaan Portfolio</title>
+  <title>Affaan Portfolio v222</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <canvas id="stars"></canvas>
-  <div id="menuToggle">
-    <input type="checkbox" />
-    <span></span><span></span><span></span>
-    <ul id="menu">
-      <a href="#about"><li>About Me</li></a>
-      <a href="#education"><li>Education</li></a>
-      <a href="#skills"><li>Skills</li></a>
-      <a href="#projects"><li>Projects</li></a>
-      <a href="#contact"><li>Contact</li></a>
+
+  <!-- Sidebar Menu -->
+  <nav class="sidebar">
+    <button class="menu-toggle">☰</button>
+    <ul class="menu">
+      <li><a href="#about" class="menu-link red-glow">About Me</a></li>
+      <li><a href="#education" class="menu-link blue-glow">Education</a></li>
+      <li><a href="#skills" class="menu-link yellow-glow">Skills</a></li>
+      <li><a href="#projects" class="menu-link green-glow">Projects</a></li>
+      <li><a href="#snake" class="menu-link purple-glow">Snake Game</a></li>
+      <li><a href="#calculator" class="menu-link cyan-glow">Calculator</a></li>
+      <li><a href="#contact" class="menu-link white-glow">Contact</a></li>
     </ul>
-  </div>
+  </nav>
 
-  <section id="about" class="card">
-    <h2>About Me</h2>
-    <p>I am Affaan, the son of Ahmed — an aspiring Computer Science student passionate about coding, design, and problem solving. 
-    Currently exploring web development, Python, and MySQL, while experimenting with creative tools like Blender. 
-    I enjoy building interactive projects and continuously sharpening my programming and design skills.</p>
-  </section>
+  <main>
+    <header>
+      <h1 class="glow-name">Affaan</h1>
+    </header>
 
-  <section id="education" class="card">
-    <h2>Education</h2>
-    <p>Currently in Class 12 (2024–2025)</p>
-    <p>Class 10 Overall: 86% | Mathematics: 93% | Science: 90%</p>
-  </section>
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <p>I am an aspiring Computer Science student passionate about software development, problem-solving, and learning new technologies. My interests lie in creating interactive projects, experimenting with GUIs, and exploring fields like AI, databases, and full-stack development.</p>
+    </section>
 
-  <section id="skills" class="card">
-    <h2>Skills</h2>
-    <div class="skills-list">
-      <a href="https://www.python.org" target="_blank">
-        <div class="skill-card glow-yellow"><img src="assets/python.png" alt="Python"><p>Python</p></div>
-      </a>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
-        <div class="skill-card glow-blue"><img src="assets/css3.png" alt="CSS"><p>CSS</p></div>
-      </a>
-      <a href="https://www.blender.org" target="_blank">
-        <div class="skill-card glow-orange"><img src="assets/blender.png" alt="Blender"><p>Blender</p></div>
-      </a>
-      <a href="https://www.mysql.com" target="_blank">
-        <div class="skill-card glow-cyan"><img src="assets/mysql.png" alt="MySQL"><p>MySQL</p></div>
-      </a>
-    </div>
-  </section>
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <p>Currently in Class 12 (2024 - 2025)</p>
+      <p>Class 10: Overall 86% | Maths: 93% | Science: 90%</p>
+    </section>
 
-  <section id="projects" class="card">
-    <h2>Projects</h2>
-    <div class="project-list">
-      <a href="snake.html" target="_blank"><div class="project-card">🐍 Snake Game</div></a>
-      <a href="calculator.html" target="_blank"><div class="project-card">🧮 Calculator</div></a>
-    </div>
-  </section>
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <div class="skill-card python">
+          <img src="https://www.python.org/static/community_logos/python-logo.png" alt="Python Logo">
+          <p>Python</p>
+        </div>
+        <div class="skill-card blender">
+          <img src="https://download.blender.org/branding/community/blender_community_badge_white.png" alt="Blender Logo">
+          <p>Blender</p>
+        </div>
+        <div class="skill-card mysql">
+          <img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="MySQL Logo">
+          <p>MySQL</p>
+        </div>
+        <div class="skill-card css">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS3 Logo">
+          <p>CSS</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="contact" class="card">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
-    <p>GitHub: <a href="https://affaandelvi.github.io" target="_blank">Affaandelvi.github.io</a></p>
-    <p>Discord: <span onclick="copyDiscord()">DragonGaming11</span></p>
-  </section>
+    <section id="projects" class="card">
+      <h2>Projects</h2>
+      <ul>
+        <li>Snake Game</li>
+        <li>Scientific Calculator</li>
+        <li>More projects coming soon...</li>
+      </ul>
+    </section>
+
+    <section id="snake" class="card">
+      <h2>Snake Game</h2>
+      <iframe src="snake.html"></iframe>
+    </section>
+
+    <section id="calculator" class="card">
+      <h2>Scientific Calculator</h2>
+      <iframe src="calculator.html"></iframe>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
+      <p>GitHub: <a href="https://affaandelvi.github.io" target="_blank">AffaanDelvi</a></p>
+      <p>Discord: dragongaming11</p>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>

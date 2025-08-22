@@ -1,10 +1,55 @@
-<!DOCTYPE html><html><head><title>Calculator</title><style>body{display:flex;justify-content:center;align-items:center;height:100vh;background:#000;color:#fff;}
-#calc{background:#111;padding:20px;border-radius:10px;box-shadow:0 0 10px cyan;}button{width:60px;height:60px;margin:5px;font-size:20px;}</style></head>
-<body><div id="calc"><input type="text" id="res" disabled><br>
-<button onclick="clr()">C</button><button onclick="press('/')">/</button><button onclick="press('*')">*</button><button onclick="press('-')">-</button><br>
-<button onclick="press('7')">7</button><button onclick="press('8')">8</button><button onclick="press('9')">9</button><button onclick="press('+')">+</button><br>
-<button onclick="press('4')">4</button><button onclick="press('5')">5</button><button onclick="press('6')">6</button><button onclick="calc()">=</button><br>
-<button onclick="press('1')">1</button><button onclick="press('2')">2</button><button onclick="press('3')">3</button><br>
-<button onclick="press('0')">0</button><button onclick="press('.')">.</button></div>
-<script>function press(x){document.getElementById('res').value+=x;}function clr(){document.getElementById('res').value='';}function calc(){document.getElementById('res').value=eval(document.getElementById('res').value);}</script>
-</body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Scientific Calculator</title>
+<style>
+body { display:flex; justify-content:center; align-items:center; height:100vh; background:black; margin:0;}
+.calculator { background:#111; padding:20px; border-radius:12px; box-shadow:0 0 20px cyan;}
+#display { width:220px; height:40px; margin-bottom:15px; text-align:right; padding:10px; font-size:18px; border:none; border-radius:8px;}
+button { width:50px; height:50px; margin:5px; font-size:16px; border:none; border-radius:8px; background:#222; color:white; box-shadow:0 0 10px cyan; transition:0.3s;}
+button:hover { background:#333; box-shadow:0 0 20px cyan;}
+</style>
+</head>
+<body>
+<div class="calculator">
+<input type="text" id="display" disabled>
+<div>
+<button onclick="clr()">C</button>
+<button onclick="del()">Del</button>
+<button onclick="insert('/')">/</button>
+<button onclick="insert('*')">*</button>
+</div>
+<div>
+<button onclick="insert('7')">7</button>
+<button onclick="insert('8')">8</button>
+<button onclick="insert('9')">9</button>
+<button onclick="insert('-')">-</button>
+</div>
+<div>
+<button onclick="insert('4')">4</button>
+<button onclick="insert('5')">5</button>
+<button onclick="insert('6')">6</button>
+<button onclick="insert('+')">+</button>
+</div>
+<div>
+<button onclick="insert('1')">1</button>
+<button onclick="insert('2')">2</button>
+<button onclick="insert('3')">3</button>
+<button onclick="calc()">=</button>
+</div>
+<div>
+<button onclick="insert('0')">0</button>
+<button onclick="insert('.')">.</button>
+<button onclick="insert('Math.sqrt(')">√</button>
+<button onclick="insert('Math.pow(')">x^y</button>
+</div>
+</div>
+<script>
+let display=document.getElementById('display');
+function insert(num){ display.value+=num; }
+function clr(){ display.value=''; }
+function del(){ display.value=display.value.slice(0,-1); }
+function calc(){ try{ display.value=eval(display.value);}catch(e){ display.value='Error'; }}
+</script>
+</body>
+</html>
