@@ -1,82 +1,60 @@
-body, html {
-  margin: 0; padding: 0;
-  font-family: Arial, sans-serif;
-  scroll-behavior: smooth;
-  background: black; color: white;
-  overflow-x: hidden;
+
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+body {
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  overflow-x:hidden;
+  background: transparent;
 }
-canvas#bgCanvas {
+canvas#stars {
   position: fixed;
   top:0; left:0;
   width:100%; height:100%;
   z-index:-1;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
-.drawer {
-  height:100%; width:0;
-  position: fixed; z-index: 2;
-  top:0; left:0;
-  background: rgba(0,0,0,0.9);
-  overflow-x:hidden;
-  transition:0.5s;
-  padding-top:60px;
-}
-.drawer a {
-  padding:8px 8px 8px 32px;
-  text-decoration:none;
-  font-size:25px;
-  color:#fff;
-  display:block;
-  transition:0.3s;
-}
-.drawer .close-btn {
-  position:absolute; top:20px; right:25px;
-  font-size:36px; background:none; border:none; color:white;
-}
-.open-btn {
-  font-size:20px;
-  margin:10px;
-  background:#111; color:white;
-  border:none; padding:10px 20px;
-  cursor:pointer;
-}
-.hero { text-align:center; padding:100px 20px; }
-.glow-red {
+header { text-align:center; padding:2rem 0; }
+.glow-title {
+  font-size:3rem;
   color:red;
-  font-size:3em;
-  text-shadow: 0 0 10px red, 0 0 20px red;
-  animation: glowPulse 2s infinite;
+  text-shadow:0 0 10px red,0 0 20px red;
+  animation: flicker 2s infinite alternate;
 }
-@keyframes glowPulse {
-  0% { text-shadow:0 0 5px red; }
-  50% { text-shadow:0 0 20px red; }
-  100% { text-shadow:0 0 5px red; }
+@keyframes flicker {
+  from { text-shadow:0 0 5px red,0 0 15px red; }
+  to { text-shadow:0 0 20px red,0 0 40px crimson; }
 }
-.card {
-  margin:20px auto;
-  padding:20px;
-  max-width:600px;
-  background:rgba(255,255,255,0.05);
-  border-radius:10px;
-  box-shadow:0 0 10px rgba(255,255,255,0.3);
+.box {
+  margin:2rem auto; padding:2rem;
+  max-width:700px; border-radius:12px;
+  background: rgba(0,0,0,0.6);
 }
+.glow { box-shadow:0 0 15px cyan,0 0 30px blue; }
 .skill-card {
-  margin:15px 0;
-  text-align:center;
+  margin:1rem auto; padding:1rem;
+  max-width:400px; border-radius:10px;
+  text-align:center; background:rgba(0,0,0,0.7);
 }
-.skill-card img {
-  max-height:80px;
-  display:block;
-  margin:0 auto;
+.skill-card img { max-width:120px; display:block; margin:0 auto; }
+.glow-skill { box-shadow:0 0 15px lime, 0 0 30px green; }
+nav { display:flex; flex-direction:column; }
+nav a {
+  padding:1rem; color:white; text-decoration:none;
+  transition: all 0.3s;
 }
-.top-btn {
-  display:block;
-  margin:40px auto;
-  padding:10px 20px;
-  font-size:18px;
-  border:none;
-  background:red; color:white;
-  border-radius:5px;
-  cursor:pointer;
-  box-shadow:0 0 10px red;
+nav a:hover {
+  text-shadow:0 0 10px cyan,0 0 20px blue;
 }
+#menu { position:fixed; left:0; top:0; }
+#menuToggle {
+  background:black; color:white;
+  border:none; padding:1rem;
+  cursor:pointer; font-size:1.2rem;
+  box-shadow:0 0 10px cyan;
+}
+#drawer {
+  max-height:0; overflow:hidden;
+  transition:max-height 0.5s ease;
+  background:rgba(0,0,0,0.9);
+}
+#drawer.open { max-height:500px; }
