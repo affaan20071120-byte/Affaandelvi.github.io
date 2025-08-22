@@ -1,95 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Affaan | Portfolio</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affaan Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="sidebar">
-    <div class="logo">
-      <img src="assets/images/dragon.png" alt="Dragon"> <span>Affaan</span>
-    </div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <header class="hero">
-      <div>
-        <img src="assets/images/dragon.png" alt="Dragon Logo">
-        <h1>I'm Affaan</h1>
-        <p>Aspiring Computer Science Student — Python · MySQL · Blender · CSS — Good in GUI interfaces</p>
-      </div>
-    </header>
-
-    <img class="divider" src="assets/waves.svg" alt="divider">
-
-    <section id="about" class="card">
-      <h2>About Me</h2>
-      <p>I'm <strong>Affaan (the son of Ahmed)</strong>, a passionate computer science student with a strong foundation in programming, data structures, and software development. I thrive on solving complex problems and building innovative solutions that blend logic with creativity. I'm also <strong>good in GUI development</strong> and love exploring interactive interfaces.</p>
-    </section>
-
-    <img class="divider" src="assets/waves.svg" alt="divider">
-
-    <section id="skills" class="card">
-      <h2>Skills</h2>
-      <p>I am good in <strong>SQL</strong> and <strong>Python</strong>, and I also work with <strong>Blender</strong> and <strong>CSS</strong>.</p>
-      <div class="grid skills">
-        <a class="skill" href="https://www.python.org" target="_blank" rel="noopener">
-          <img src="assets/images/python.png" alt="Python"><label>Python</label>
-        </a>
-        <a class="skill" href="https://www.mysql.com" target="_blank" rel="noopener">
-          <img src="assets/images/mysql.png" alt="MySQL"><label>MySQL</label>
-        </a>
-        <a class="skill" href="blender.html" target="_blank" rel="noopener">
-          <img src="assets/images/blender.png" alt="Blender"><label>Blender (3D Viewer)</label>
-        </a>
-        <a class="skill" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">
-          <img src="assets/images/Css3.png" alt="CSS3"><label>CSS</label>
-        </a>
-      </div>
-    </section>
-
-    <img class="divider" src="assets/waves.svg" alt="divider">
-
-    <section id="projects" class="card">
-      <h2>Projects</h2>
-      <p>Open the demos in a new tab:</p>
-      <div class="actions">
-        <a class="btn" href="projects/snake.html" target="_blank" rel="noopener">🐍 Play Snake Game</a>
-        <a class="btn" href="projects/calculator.html" target="_blank" rel="noopener">🧮 Open Calculator</a>
-      </div>
-    </section>
-
-    <img class="divider" src="assets/waves.svg" alt="divider">
-
-    <section id="education" class="card">
-      <h2>Education</h2>
+  <header>
+    <h1 class="glow">Affaan (Son of Ahmed)</h1>
+    <nav>
       <ul>
-        <li>10th Overall: <strong>86%</strong></li>
-        <li>Maths: <strong>93%</strong></li>
-        <li>Science: <strong>90%</strong></li>
-        <li>Currently in <strong>12th Grade</strong></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
       </ul>
-    </section>
+    </nav>
+  </header>
 
-    <img class="divider" src="assets/waves.svg" alt="divider">
+  <section id="about" class="card">
+    <h2>About Me</h2>
+    <p>I'm Affaan, a passionate Computer Science student with strong foundations in programming, data structures, and software development. 
+    I thrive on solving complex problems and building innovative solutions that blend logic with creativity.</p>
+  </section>
 
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p>Email: <a class="btn" href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
-      <p>Discord: <strong>dragongaming11</strong></p>
-    </section>
+  <section id="skills" class="card">
+    <h2>Skills</h2>
+    <p>I am good at SQL, Python, and have experience with Blender.</p>
+    <div class="skills-grid">
+      <a href="https://www.python.org" target="_blank"><img src="assets/python.png" alt="Python"></a>
+      <a href="https://www.blender.org" target="_blank"><img src="assets/blender.png" alt="Blender"></a>
+      <a href="https://www.w3.org/TR/CSS/#css" target="_blank"><img src="assets/Css3.png" alt="CSS3"></a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"><img src="assets/html.png" alt="HTML"></a>
+      <img src="assets/Dragon.png" alt="Dragon Logo">
+    </div>
+  </section>
 
-    <footer class="footer">© 2025 Affaan — Built with ❤️</footer>
-  </main>
+  <section id="projects" class="card">
+    <h2>Projects</h2>
+    <ul>
+      <li><a href="snake.html" target="_blank">Snake Game</a></li>
+      <li><a href="calculator.html" target="_blank">Calculator</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 Affaan Portfolio</p>
+  </footer>
 </body>
 </html>
