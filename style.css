@@ -1,82 +1,182 @@
-body, html {
-  margin: 0; padding: 0;
-  font-family: Arial, sans-serif;
-  scroll-behavior: smooth;
-  background: black; color: white;
-  overflow-x: hidden;
+/* Global Styles */
+:root{
+  --bg-deep: #0b0f2a;
+  --bg-gradient-start:#0b0f2a;
+  --bg-gradient-end:#2b0d3a;
+  --accent-red:#ff2b45;
+  --accent-blue:#3aa0ff;
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: rgba(255,255,255,0.12);
+  --text:#e7e8ee;
+  --muted:#b7bbd0;
+  --glow: 0 0 16px rgba(255,43,69,0.55), 0 0 32px rgba(58,160,255,0.35);
 }
-canvas#bgCanvas {
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  z-index:-1;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-}
-.drawer {
-  height:100%; width:0;
-  position: fixed; z-index: 2;
-  top:0; left:0;
-  background: rgba(0,0,0,0.9);
+
+*{ box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(255,60,80,0.10), transparent 60%),
+              radial-gradient(1000px 700px at 80% 30%, rgba(58,160,255,0.12), transparent 60%),
+              linear-gradient(180deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  min-height:100vh;
   overflow-x:hidden;
-  transition:0.5s;
-  padding-top:60px;
 }
-.drawer a {
-  padding:8px 8px 8px 32px;
+
+/* Starfield canvas covers the screen */
+#starfield{
+  position:fixed; inset:0;
+  width:100%; height:100%;
+  z-index:-2;
+  background: transparent;
+}
+.gradient-overlay{
+  position:fixed; inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(1500px 1000px at 70% 70%, rgba(255,60,80,0.10), transparent 60%),
+    radial-gradient(1200px 900px at 30% 20%, rgba(58,160,255,0.12), transparent 60%);
+}
+
+/* Sections */
+.hero{ padding: 60px 16px 0; text-align:center; }
+.title{
+  margin:0 auto 14px;
+  font-size: clamp(28px, 5vw, 60px);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: none;
+}
+.glow-red{
+  color: var(--text);
+  text-shadow:
+    0 0 8px rgba(255,43,69,0.7),
+    0 0 18px rgba(255,43,69,0.6),
+    0 0 36px rgba(58,160,255,0.35);
+  -webkit-text-stroke: 1px rgba(255,43,69,0.3);
+}
+
+.section{
+  padding: 32px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.section--narrow{ padding-top: 8px; }
+
+.section-box{
+  width:min(1100px, 92vw);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+}
+.section-box h2{
+  margin: 4px 0 18px;
+  font-size: clamp(22px, 3.2vw, 32px);
+  font-weight: 700;
+}
+
+/* Hamburger */
+.hamburger-wrapper{
+  width:min(1100px, 92vw);
+  display:flex; align-items:center; justify-content:flex-start;
+}
+#hamburger{
+  width:46px; height:42px;
+  border-radius:12px;
+  background: var(--card-bg);
+  border:1px solid var(--card-border);
+  display:flex; flex-direction:column; gap:6px; align-items:center; justify-content:center;
+  cursor:pointer;
+  box-shadow: var(--glow);
+}
+#hamburger span{
+  display:block; width:60%; height:3px; background: var(--text); border-radius:2px;
+}
+.nav-links{
+  margin-left: 12px;
+  display:flex; gap:8px; flex-wrap:wrap;
+  background: var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius: 12px;
+  padding:8px 10px;
+}
+.nav-links a{
+  text-decoration: none;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+  border:1px solid transparent;
+}
+.nav-links a:hover{
+  border-color: var(--card-border);
+  box-shadow: var(--glow);
+}
+
+/* Columns (vertical centered) */
+.column{
+  display:flex; flex-direction:column; align-items:center; gap:16px;
+}
+
+/* Cards */
+.card{
+  width: min(860px, 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+  border:1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 18px 18px;
   text-decoration:none;
-  font-size:25px;
-  color:#fff;
-  display:block;
-  transition:0.3s;
+  color: var(--text);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  position:relative;
 }
-.drawer .close-btn {
-  position:absolute; top:20px; right:25px;
-  font-size:36px; background:none; border:none; color:white;
+.card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(255,43,69,0.5);
+  box-shadow: 0 0 10px rgba(255,43,69,0.4), 0 0 24px rgba(58,160,255,0.25);
 }
-.open-btn {
-  font-size:20px;
-  margin:10px;
-  background:#111; color:white;
-  border:none; padding:10px 20px;
-  cursor:pointer;
+.logo-title{
+  display:flex; align-items:center; gap:12px;
 }
-.hero { text-align:center; padding:100px 20px; }
-.glow-red {
-  color:red;
-  font-size:3em;
-  text-shadow: 0 0 10px red, 0 0 20px red;
-  animation: glowPulse 2s infinite;
+.logo-title img{
+  width:36px; height:36px; object-fit:contain;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.35));
 }
-@keyframes glowPulse {
-  0% { text-shadow:0 0 5px red; }
-  50% { text-shadow:0 0 20px red; }
-  100% { text-shadow:0 0 5px red; }
+.card h3{ margin: 2px 0 6px; }
+.card p{ margin: 6px 0 0; color: var(--muted); }
+.btn-like{
+  position:absolute; right:14px; bottom:12px;
+  font-size: 12px;
+  opacity:0.85;
+  padding:6px 10px; border-radius:10px;
+  border:1px solid var(--card-border);
+  background: rgba(0,0,0,0.2);
 }
-.card {
-  margin:20px auto;
-  padding:20px;
-  max-width:600px;
-  background:rgba(255,255,255,0.05);
-  border-radius:10px;
-  box-shadow:0 0 10px rgba(255,255,255,0.3);
+
+/* Education list */
+.edu{ margin:0; padding-left: 18px; color: var(--muted); }
+.edu li{ margin: 8px 0; }
+
+/* Reveal on scroll */
+.reveal{
+  opacity:0; transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
 }
-.skill-card {
-  margin:15px 0;
-  text-align:center;
+.reveal.visible{
+  opacity:1; transform: translateY(0);
 }
-.skill-card img {
-  max-height:80px;
-  display:block;
-  margin:0 auto;
-}
-.top-btn {
-  display:block;
-  margin:40px auto;
-  padding:10px 20px;
-  font-size:18px;
-  border:none;
-  background:red; color:white;
-  border-radius:5px;
-  cursor:pointer;
-  box-shadow:0 0 10px red;
+
+/* Footer */
+.footer{ text-align:center; padding: 24px; color: var(--muted); }
+
+/* Responsive tweaks */
+@media (max-width:520px){
+  #hamburger{ width:44px; height:40px; }
+  .logo-title img{ width:28px; height:28px; }
 }
