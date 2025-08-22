@@ -1,1 +1,72 @@
-<html><body><h1>Portfolio placeholder</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affaan Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="stars"></canvas>
+  <div class="menu">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <nav id="nav">
+      <a href="#about">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <header>
+    <h1 class="glow">Affaan <span class="sub">Son of Ahmed</span></h1>
+  </header>
+
+  <section id="about" class="box glow-box">
+    <h2>About Me</h2>
+    <p>I am an aspiring Computer Science student currently in Class 12. I have been using Python since Grade 9 and enjoy creating programs and projects. 
+    In Class 10, I scored 86% overall with 93% in Mathematics and 90% in Science. I aim to pursue programming and software development as my career path.</p>
+  </section>
+
+  <section id="skills" class="box glow-box">
+    <h2>Skills</h2>
+    <div class="card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+      <p>Using Python since Grade 9. Built multiple programs and games.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+      <p>Database management and queries using MySQL.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+      <p>Frontend styling and responsive web designs.</p>
+    </div>
+  </section>
+
+  <section id="projects" class="box glow-box">
+    <h2>Projects</h2>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Snake Game">
+      <p><a href="snake.html" target="_blank">Snake Game</a> - Play a fun snake game with score tracking.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1041/1041883.png" alt="Calculator">
+      <p><a href="calculator.html" target="_blank">Scientific Calculator</a> - Perform advanced calculations with glowing UI.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/814/814513.png" alt="Coming Soon">
+      <p>More Projects Coming Soon...</p>
+    </div>
+  </section>
+
+  <section id="contact" class="box glow-box">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
+    <p>GitHub: <a href="https://Affaandelvi.github.io" target="_blank">Affaandelvi.github.io</a></p>
+    <p>Discord: dragongaming11</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
