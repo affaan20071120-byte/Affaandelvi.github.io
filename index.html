@@ -7,143 +7,207 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css" />
+  <style>
+    :root{
+      --bg1:#0b0f2a; --bg2:#2b0d3a;
+      --text:#e7e8ee; --muted:#b7bbd0;
+      --line: rgba(255,255,255,0.12);
+      --card: rgba(255,255,255,0.05);
+      --accent:#ff2b45; --accent2:#3aa0ff;
+    }
+    *{ box-sizing:border-box }
+    html{ scroll-behavior:smooth }
+    body{
+      margin:0;
+      font-family:Poppins,system-ui,Arial;
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(255,60,80,0.10), transparent 60%),
+                  radial-gradient(1000px 700px at 80% 30%, rgba(58,160,255,0.12), transparent 60%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    #stars{ position:fixed; inset:0; z-index:-1 }
+    header{ text-align:center; padding:56px 16px 8px }
+    h1{
+      margin:0;
+      font-size: clamp(28px,5.5vw,64px);
+      font-weight:800;
+      color: var(--text);
+      text-shadow: 0 0 8px rgba(255,43,69,0.7), 0 0 18px rgba(255,43,69,0.5), 0 0 36px rgba(58,160,255,0.3);
+      -webkit-text-stroke: 1px rgba(255,43,69,0.3);
+    }
+    section{ padding:28px 16px; display:flex; justify-content:center }
+    .box{
+      width:min(1100px, 92vw);
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      backdrop-filter: blur(6px);
+    }
+    .box h2{ margin: 4px 0 12px; font-size: clamp(22px,3vw,32px) }
+    .muted{ color:var(--muted) }
+    /* Hamburger */
+    nav{ position:sticky; top:8px; display:flex; justify-content:center }
+    .navwrap{ width:min(1100px,92vw); display:flex; gap:10px; align-items:center }
+    #hamburger{
+      width:46px; height:42px; border-radius:12px; border:1px solid var(--line); background:var(--card);
+      display:flex; flex-direction:column; gap:6px; align-items:center; justify-content:center; cursor:pointer;
+      box-shadow: 0 0 14px rgba(255,43,69,0.35), 0 0 22px rgba(58,160,255,0.25);
+    }
+    #hamburger span{ width:60%; height:3px; background:var(--text); border-radius:2px }
+    #menu{ display:none; gap:10px; flex-wrap:wrap; padding:8px 10px; border:1px solid var(--line); border-radius:12px; background:var(--card) }
+    #menu a{ color:var(--text); text-decoration:none; padding:8px 12px; border-radius:10px; border:1px solid transparent }
+    #menu a:hover{ border-color:var(--line); box-shadow: 0 0 10px rgba(255,43,69,0.35), 0 0 18px rgba(58,160,255,0.25) }
+    /* Skills & Projects */
+    .col{ display:flex; flex-direction:column; gap:14px; align-items:center }
+    .card{
+      width:min(860px,100%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+      border:1px solid var(--line);
+      border-radius:16px; padding:18px; text-decoration:none; color:var(--text);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      position:relative;
+    }
+    .card:hover{ transform: translateY(-3px); border-color: rgba(255,43,69,0.5);
+      box-shadow: 0 0 10px rgba(255,43,69,0.4), 0 0 24px rgba(58,160,255,0.25); }
+    .btn{ position:absolute; right:14px; bottom:12px; font-size:12px; opacity:.85; padding:6px 10px; border-radius:10px; border:1px solid var(--line) }
+    footer{ text-align:center; padding:24px; color:var(--muted) }
+  </style>
 </head>
 <body>
-  <!-- Starfield background -->
-  <canvas id="starfield" aria-hidden="true"></canvas>
-  <div class="gradient-overlay" aria-hidden="true"></div>
-
-  <!-- Top Title -->
-  <header class="hero">
-    <h1 class="title glow-red">Affaan, the son of Ahmed</h1>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <header>
+    <h1>Affaan, the son of Ahmed</h1>
   </header>
 
-  <!-- About Me (FIRST) -->
-  <section id="about" class="section">
-    <div class="section-box reveal">
-      <h2>About Me</h2>
-      <p>
-        I am <strong>Affaan</strong>, a passionate Computer Science student who loves exploring the world of
-        technology and programming. From my early school days, I have been fascinated by how computers work, and
-        that curiosity has grown into a deep interest in coding, problem‑solving, and building useful projects.
-        I enjoy learning new languages and tools, experimenting with design, and turning ideas into products.
-        My goal is to keep improving and pursue excellence in the ever‑evolving field of Computer Science.
-      </p>
-    </div>
-  </section>
-
   <!-- Hamburger Menu (SECOND) -->
-  <section id="menu" class="section section--narrow">
-    <div class="hamburger-wrapper reveal">
-      <button id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="navLinks" class="nav-links" hidden>
+  <nav>
+    <div class="navwrap">
+      <button id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div id="menu">
         <a href="#about">About Me</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
-      </nav>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Me (FIRST) -->
+  <section id="about">
+    <div class="box">
+      <h2>About Me</h2>
+      <p class="muted">
+        I’m <strong>Affaan</strong> — a Computer Science student who loves coding, problem‑solving and turning ideas into
+        beautiful, working products. I focus on learning fast, building real projects, and improving every day.
+      </p>
     </div>
   </section>
 
   <!-- Skills (MAIN BOX) -->
-  <section id="skills" class="section">
-    <div class="section-box reveal">
+  <section id="skills">
+    <div class="box">
       <h2>Skills</h2>
-      <div class="column">
-        <!-- Python -->
-        <a class="card skill reveal" href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
-          <div class="logo-title">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python logo" />
-            <h3>Python</h3>
-          </div>
-          <p>I have been using Python for <strong>4 years</strong>.</p>
+      <div class="col">
+        <a class="card" href="https://www.python.org/" target="_blank" rel="noopener">
+          <h3>Python</h3>
+          <p class="muted">I have been using Python for <strong>4 years</strong>.</p>
         </a>
-
-        <!-- MySQL -->
-        <a class="card skill reveal" href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">
-          <div class="logo-title">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL logo" />
-            <h3>MySQL</h3>
-          </div>
-          <p>I just started learning MySQL in <strong>Grade 12</strong>.</p>
+        <a class="card" href="https://www.mysql.com/" target="_blank" rel="noopener">
+          <h3>MySQL</h3>
+          <p class="muted">I started learning MySQL in <strong>Grade 12</strong>.</p>
         </a>
-
-        <!-- Blender -->
-        <a class="card skill reveal" href="https://www.blender.org/" target="_blank" rel="noopener noreferrer">
-          <div class="logo-title">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/blender/blender-original.svg" alt="Blender logo" />
-            <h3>Blender</h3>
-          </div>
-          <p>I have been using Blender for <strong>6 months</strong>.</p>
+        <a class="card" href="https://www.blender.org/" target="_blank" rel="noopener">
+          <h3>Blender</h3>
+          <p class="muted">I have been using Blender for <strong>6 months</strong>.</p>
         </a>
-
-        <!-- CSS3 -->
-        <a class="card skill reveal" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">
-          <div class="logo-title">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3 logo" />
-            <h3>CSS3</h3>
-          </div>
-          <p>I just started now and have already become a <strong>master</strong> in CSS3.</p>
+        <a class="card" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">
+          <h3>CSS3</h3>
+          <p class="muted">I just started now and have already become a <strong>master</strong> in CSS3.</p>
         </a>
       </div>
     </div>
   </section>
 
   <!-- Projects (MAIN BOX) -->
-  <section id="projects" class="section">
-    <div class="section-box reveal">
+  <section id="projects">
+    <div class="box">
       <h2>Projects</h2>
-      <div class="column">
-        <!-- Snake Game -->
-        <a class="card project reveal" href="./projects/snake.html" target="_blank" rel="noopener noreferrer">
+      <div class="col">
+        <a class="card" href="snake.html" target="_blank" rel="noopener">
           <h3>Snake Game</h3>
-          <p>
-            A modern take on the classic Snake — built with <strong>HTML, CSS, and JavaScript</strong>.
-            Eat food, grow longer, and chase a high score. Smooth controls, glowing visuals, and a live score counter.
-          </p>
-          <span class="btn-like">Open in new tab</span>
+          <p class="muted">Modern glowing snake with score counter and smooth controls.</p>
+          <span class="btn">Open in new tab</span>
         </a>
-
-        <!-- Scientific Calculator -->
-        <a class="card project reveal" href="./projects/calc.html" target="_blank" rel="noopener noreferrer">
+        <a class="card" href="calc.html" target="_blank" rel="noopener">
           <h3>Scientific Calculator</h3>
-          <p>
-            A sleek scientific calculator with <strong>basic & advanced functions</strong>, keyboard support,
-            and glowing interactive buttons. Built with <strong>HTML, CSS, and JavaScript</strong>.
-          </p>
-          <span class="btn-like">Open in new tab</span>
+          <p class="muted">Neon-styled calculator with basic & scientific functions.</p>
+          <span class="btn">Open in new tab</span>
         </a>
-
-        <!-- Upcoming Projects -->
-        <a class="card project reveal" href="./projects/coming-soon.html" target="_blank" rel="noopener noreferrer">
+        <a class="card" href="coming-soon.html" target="_blank" rel="noopener">
           <h3>Upcoming Projects</h3>
-          <p>More exciting projects are coming soon… Stay tuned!</p>
-          <span class="btn-like">Open in new tab</span>
+          <p class="muted">More exciting projects are coming soon…</p>
+          <span class="btn">Open in new tab</span>
         </a>
       </div>
     </div>
   </section>
 
   <!-- Education (SEPARATE BOX) -->
-  <section id="education" class="section">
-    <div class="section-box reveal">
+  <section id="education">
+    <div class="box">
       <h2>Education</h2>
-      <ul class="edu">
-        <li><strong>Class 10 (Completed):</strong> Overall <strong>86%</strong></li>
-        <li>Science: <strong>90</strong></li>
-        <li>Maths: <strong>93</strong></li>
-        <li><strong>Currently:</strong> Pursuing Grade 12</li>
-      </ul>
+      <p class="muted">
+        Class 10: <strong>86%</strong> (Maths <strong>93</strong>, Science <strong>90</strong>) — Currently pursuing <strong>Grade 12</strong>.
+      </p>
     </div>
   </section>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> Affaan. Built with passion ⚡🐉</p>
-  </footer>
+  <footer>© <span id="year"></span> Affaan. Built with passion ⚡🐉</footer>
 
-  <script src="./script.js"></script>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hamburger toggle
+    const hb = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    hb.addEventListener('click', ()=>{
+      menu.style.display = (menu.style.display==='flex') ? 'none' : 'flex';
+    });
+
+    // Starfield
+    const c = document.getElementById('stars');
+    const ctx = c.getContext('2d');
+    let stars = [];
+    function resize(){
+      c.width = innerWidth; c.height = innerHeight;
+      stars = Array.from({length:180}, ()=> ({
+        x: Math.random()*c.width, y: Math.random()*c.height, z: Math.random()*0.7+0.3, t: Math.random()*Math.PI*2
+      }));
+    }
+    addEventListener('resize', resize); resize();
+    function draw(){
+      ctx.clearRect(0,0,c.width,c.height);
+      for(const s of stars){
+        s.t += 0.03;
+        s.x += (Math.random()-0.5)*0.2*s.z;
+        s.y += (Math.random()-0.5)*0.2*s.z;
+        if (s.x<0) s.x=c.width; if (s.x>c.width) s.x=0;
+        if (s.y<0) s.y=c.height; if (s.y>c.height) s.y=0;
+        const r = 0.6 + 1.6*s.z + Math.sin(s.t)*0.3;
+        const g = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,r*6);
+        g.addColorStop(0,'rgba(255,255,255,0.9)');
+        g.addColorStop(1,'rgba(255,255,255,0)');
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(s.x,s.y,r,0,Math.PI*2); ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
 </body>
 </html>

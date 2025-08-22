@@ -10,13 +10,13 @@
       --text:#e7e8ee; --muted:#b7bbd0;
       --card: rgba(255,255,255,0.05);
       --line: rgba(255,255,255,0.12);
-      --accent:#ff2b45; --accent2:#3aa0ff;
-      background: radial-gradient(1200px 800px at 20% 10%, rgba(255,60,80,0.10), transparent 60%),
-                  radial-gradient(1000px 700px at 80% 30%, rgba(58,160,255,0.12), transparent 60%),
-                  linear-gradient(180deg, #0b0f2a, #2b0d3a);
+      --bg1:#0b0f2a; --bg2:#2b0d3a;
     }
     *{ box-sizing:border-box }
-    body{ margin:0; min-height:100vh; color:var(--text); font-family:Poppins,system-ui,Arial; display:flex; align-items:center; justify-content:center; padding:20px; }
+    body{ margin:0; min-height:100vh; color:var(--text); font-family:Poppins,system-ui,Arial; display:flex; align-items:center; justify-content:center; padding:20px;
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(255,60,80,0.10), transparent 60%),
+                  radial-gradient(1000px 700px at 80% 30%, rgba(58,160,255,0.12), transparent 60%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2)); }
     .wrap{
       width:min(900px, 96vw);
       background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px;
@@ -32,9 +32,7 @@
     .panel{ min-width:240px; flex:1; }
     h1{ margin:6px 6px 12px; font-size:clamp(20px, 3.2vw, 28px); }
     p{ color:var(--muted); margin:8px 6px; }
-    .score{
-      display:flex; gap:10px; align-items:center; margin: 10px 6px 16px;
-    }
+    .score{ display:flex; gap:10px; align-items:center; margin: 10px 6px 16px; }
     .stat{ padding:8px 12px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,0.04); }
     .btns{ display:flex; gap:10px; flex-wrap:wrap; margin: 8px 6px; }
     button{
@@ -55,8 +53,8 @@
           <div class="stat">Best: <strong id="best">0</strong></div>
         </div>
         <p>
-          A modern take on the classic Snake — built with <strong>HTML, CSS, JavaScript</strong>. Eat food, grow longer,
-          and avoid hitting yourself. Use the arrow keys or WASD to move. Press Space to pause/resume.
+          A modern glowing Snake — built with <strong>HTML, CSS, JavaScript</strong>. Eat food, grow longer,
+          and avoid hitting yourself. Use Arrow keys / WASD. Space to pause.
         </p>
         <div class="btns">
           <button id="restart">Restart</button>
@@ -69,10 +67,9 @@
   <script>
     const cvs = document.getElementById('game');
     const ctx = cvs.getContext('2d');
-    const size = 24; // cell size
+    const size = 24;
     const cells = cvs.width / size;
-    let dir = {x:1, y:0};
-    let nextDir = {x:1, y:0};
+    let dir = {x:1, y:0}, nextDir = {x:1, y:0};
     let snake, food, score, best, speed, running, frame;
 
     function init(){
@@ -86,14 +83,12 @@
     }
     function placeFood(){
       food = {x: Math.floor(Math.random()*cells), y: Math.floor(Math.random()*cells)};
-      // ensure not on snake
       if (snake?.some(s => s.x===food.x && s.y===food.y)) placeFood();
     }
     function drawGrid(){
       ctx.clearRect(0,0,cvs.width,cvs.height);
       ctx.fillStyle = '#0b0f2a';
       ctx.fillRect(0,0,cvs.width,cvs.height);
-      // grid glow
       ctx.strokeStyle = 'rgba(255,255,255,0.06)';
       ctx.lineWidth = 1;
       for(let i=0;i<=cells;i++){
@@ -139,10 +134,8 @@
     function step(){
       dir = nextDir;
       const head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
-      // wrap around edges for friendlier gameplay
       head.x = (head.x + cells) % cells;
       head.y = (head.y + cells) % cells;
-      // self collision
       if (snake.some((s,i)=> i>0 && s.x===head.x && s.y===head.y)){
         running = false;
         setTimeout(()=>alert('Game Over! Score: ' + score), 50);
@@ -162,12 +155,9 @@
       }
     }
     function render(){
-      drawGrid();
-      drawFood();
-      drawSnake();
+      drawGrid(); drawFood(); drawSnake();
     }
 
-    // controls
     document.addEventListener('keydown', (e)=>{
       const k = e.key.toLowerCase();
       if (k==='arrowup' || k==='w'){ if (dir.y!==1){ nextDir={x:0,y:-1}; } }
@@ -185,11 +175,8 @@
     document.getElementById('restart').addEventListener('click', init);
     document.getElementById('pause').addEventListener('click', togglePause);
 
-    // init
     document.getElementById('best').textContent = Number(localStorage.getItem('best')||0);
-    init();
-    render();
-    cvs.focus();
+    init(); render(); document.getElementById('game').focus();
   </script>
 </body>
 </html>
