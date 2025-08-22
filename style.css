@@ -1,86 +1,25 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-  background: radial-gradient(circle at top, #1a1a40, #000000 80%);
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-#stars {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-.section {
-  padding: 100px 20px;
-  text-align: center;
-}
-.glow-red {
-  font-size: 2.5rem;
-  color: #ff3333;
-  text-shadow: 0 0 10px #ff3333, 0 0 20px #ff0000;
-}
-.skills .card, .projects .card {
-  background: rgba(255,255,255,0.05);
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 12px;
-  width: 250px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.skills .card:hover, .projects .card:hover {
-  transform: scale(1.05);
-}
-.python:hover { box-shadow: 0 0 20px #3572A5; }
-.blender:hover { box-shadow: 0 0 20px #FF6F00; }
-.css:hover { box-shadow: 0 0 20px #2965F1; }
-.skills img {
-  width: 80px;
-  display: block;
-  margin: 0 auto 10px;
-}
-
-/* Drawer Menu */
-#menuToggle {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-  z-index: 1000;
-}
-#menuToggle span {
-  display: block;
-  width: 30px;
-  height: 3px;
-  margin: 6px;
-  background: white;
-  transition: 0.4s;
-}
-#drawer {
-  position: fixed;
-  top: 0;
-  left: -220px;
-  height: 100%;
-  width: 200px;
-  background: rgba(0,0,0,0.8);
-  padding-top: 60px;
-  transition: left 0.4s ease;
-  display: flex;
-  flex-direction: column;
-}
-#drawer a {
-  color: white;
-  padding: 15px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-#drawer a:hover {
-  background: rgba(255,255,255,0.2);
-}
-#drawer.open {
-  left: 0;
-}
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Orbitron', sans-serif;background:#0a0a2a;color:#fff;overflow-x:hidden;scroll-behavior:smooth;}
+canvas#stars {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
+.card {background:rgba(20,20,40,0.9);margin:50px auto;padding:30px;border-radius:20px;
+       width:80%;max-width:800px;box-shadow:0 0 20px rgba(255,255,255,0.2);transition:transform 0.3s;}
+.card:hover {transform:translateY(-10px);}
+h2 {color:red;text-shadow:0 0 10px red;}
+.skills-list {display:flex;flex-direction:column;gap:20px;}
+.skill-card {display:flex;align-items:center;gap:15px;padding:15px;border-radius:15px;background:#111;cursor:pointer;transition:0.3s;}
+.skill-card img {width:40px;}
+.skill-card:hover {transform:scale(1.05);}
+.glow-yellow:hover {box-shadow:0 0 15px yellow;}
+.glow-blue:hover {box-shadow:0 0 15px blue;}
+.glow-orange:hover {box-shadow:0 0 15px orange;}
+.glow-cyan:hover {box-shadow:0 0 15px cyan;}
+.project-list {display:flex;flex-direction:column;gap:20px;}
+.project-card {padding:20px;border-radius:15px;background:#111;text-align:center;transition:0.3s;}
+.project-card:hover {background:#222;box-shadow:0 0 15px #0ff;}
+#menuToggle {position:fixed;top:20px;left:20px;z-index:1000;}
+#menuToggle input {display:block;width:40px;height:32px;position:absolute;top:-7px;left:-5px;cursor:pointer;opacity:0;z-index:2;}
+#menuToggle span {display:block;width:33px;height:4px;margin-bottom:5px;background:#fff;border-radius:3px;transition:all 0.3s;}
+#menu {position:absolute;width:200px;margin:-50px 0 0 -50px;padding:50px;padding-top:100px;background:#111;list-style:none;transform:translateX(-100%);transition:transform 0.3s;}
+#menuToggle input:checked ~ ul {transform:none;}
+#menu li {padding:10px 0;font-size:18px;}
+#menu a {color:white;text-decoration:none;}

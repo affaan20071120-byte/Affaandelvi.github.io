@@ -1,63 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Affaan Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <canvas id="stars"></canvas>
-
-  <!-- Drawer Menu -->
   <div id="menuToggle">
-    <span></span>
-    <span></span>
-    <span></span>
+    <input type="checkbox" />
+    <span></span><span></span><span></span>
+    <ul id="menu">
+      <a href="#about"><li>About Me</li></a>
+      <a href="#education"><li>Education</li></a>
+      <a href="#skills"><li>Skills</li></a>
+      <a href="#projects"><li>Projects</li></a>
+      <a href="#contact"><li>Contact</li></a>
+    </ul>
   </div>
-  <nav id="drawer">
-    <a href="#about">About Me</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
 
-  <section id="about" class="section">
-    <h1 class="glow-red">Affaan son of Ahmed</h1>
-    <p class="bio">Computer Science Student passionate about coding, problem solving, and technology.</p>
+  <section id="about" class="card">
+    <h2>About Me</h2>
+    <p>I am Affaan, the son of Ahmed — an aspiring Computer Science student passionate about coding, design, and problem solving. 
+    Currently exploring web development, Python, and MySQL, while experimenting with creative tools like Blender. 
+    I enjoy building interactive projects and continuously sharpening my programming and design skills.</p>
   </section>
 
-  <section id="skills" class="section">
+  <section id="education" class="card">
+    <h2>Education</h2>
+    <p>Currently in Class 12 (2024–2025)</p>
+    <p>Class 10 Overall: 86% | Mathematics: 93% | Science: 90%</p>
+  </section>
+
+  <section id="skills" class="card">
     <h2>Skills</h2>
-    <div class="skills">
-      <div class="card python">
-        <img src="images/python.png" alt="Python" />
-        <p>Proficient in Python for problem solving and projects</p>
-      </div>
-      <div class="card blender">
-        <img src="images/blender.png" alt="Blender" />
-        <p>Good with Blender for 3D design and modeling</p>
-      </div>
-      <div class="card css">
-        <img src="images/css.png" alt="CSS" />
-        <p>Strong CSS knowledge for GUI and styling</p>
-      </div>
+    <div class="skills-list">
+      <a href="https://www.python.org" target="_blank">
+        <div class="skill-card glow-yellow"><img src="assets/python.png" alt="Python"><p>Python</p></div>
+      </a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+        <div class="skill-card glow-blue"><img src="assets/css3.png" alt="CSS"><p>CSS</p></div>
+      </a>
+      <a href="https://www.blender.org" target="_blank">
+        <div class="skill-card glow-orange"><img src="assets/blender.png" alt="Blender"><p>Blender</p></div>
+      </a>
+      <a href="https://www.mysql.com" target="_blank">
+        <div class="skill-card glow-cyan"><img src="assets/mysql.png" alt="MySQL"><p>MySQL</p></div>
+      </a>
     </div>
   </section>
 
-  <section id="projects" class="section">
+  <section id="projects" class="card">
     <h2>Projects</h2>
-    <div class="projects">
-      <a href="snake.html" target="_blank" class="card">Snake Game</a>
-      <a href="calculator.html" target="_blank" class="card">Calculator</a>
-      <a href="https://www.blender.org/" target="_blank" class="card">Blender</a>
+    <div class="project-list">
+      <a href="snake.html" target="_blank"><div class="project-card">🐍 Snake Game</div></a>
+      <a href="calculator.html" target="_blank"><div class="project-card">🧮 Calculator</div></a>
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <section id="contact" class="card">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/AffaanDelvi" target="_blank">AffaanDelvi</a></p>
+    <p>GitHub: <a href="https://affaandelvi.github.io" target="_blank">Affaandelvi.github.io</a></p>
+    <p>Discord: <span onclick="copyDiscord()">DragonGaming11</span></p>
   </section>
 
   <script src="script.js"></script>
