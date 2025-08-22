@@ -3,78 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Affaan Delvi Portfolio</title>
+  <title>Affaan Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Vertical Menu -->
-  <nav class="sidebar">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <canvas id="stars"></canvas>
+
+  <!-- Drawer Menu -->
+  <div id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="drawer">
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <div id="particles-js"></div>
+  <section id="about" class="section">
+    <h1 class="glow-red">Affaan son of Ahmed</h1>
+    <p class="bio">Computer Science Student passionate about coding, problem solving, and technology.</p>
+  </section>
 
-  <main>
-    <!-- About Section -->
-    <section id="about" class="box">
-      <h1>About Me</h1>
-      <p>Hi, I am <strong>Affaan (the son of Ahmed)</strong>. I am passionate about Computer Science and love building interactive applications and GUIs.</p>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="box">
-      <h1>Education</h1>
-      <p>Currently in <b>12th (2024 - 2025)</b></p>
-      <p>10th Overall: 86% | Maths: 93% | Science: 90%</p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="box">
-      <h1>Skills</h1>
-      <div class="skills-container">
-        <div class="card glow">
-          <img src="images/python.png" alt="Python">
-          <p>Good at Python - including GUI and projects</p>
-        </div>
-        <div class="card glow">
-          <img src="images/Css3.png" alt="CSS3">
-          <p>Skilled in CSS3 for modern web design</p>
-        </div>
-        <div class="card glow">
-          <img src="images/35c7a9b4-46f7-4c63-b29a-2c81fa1d1669.png" alt="Blender">
-          <p>Good in Blender - 3D Modelling</p>
-        </div>
-        <div class="card glow">
-          <img src="images/5e15f391-e9c4-4938-bbb7-0759df13f3af.png" alt="Dragon">
-          <p>Creative projects with unique dragon themes</p>
-        </div>
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="card python">
+        <img src="images/python.png" alt="Python" />
+        <p>Proficient in Python for problem solving and projects</p>
       </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="box">
-      <h1>Projects</h1>
-      <div class="projects-container">
-        <a href="projects/calculator.html" target="_blank" class="card glow">Calculator</a>
-        <a href="projects/snake.html" target="_blank" class="card glow">Snake Game</a>
+      <div class="card blender">
+        <img src="images/blender.png" alt="Blender" />
+        <p>Good with Blender for 3D design and modeling</p>
       </div>
-    </section>
+      <div class="card css">
+        <img src="images/css.png" alt="CSS" />
+        <p>Strong CSS knowledge for GUI and styling</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="box">
-      <h1>Contact</h1>
-      <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/Affaandelvi" target="_blank">AffaanDelvi</a></p>
-    </section>
-  </main>
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects">
+      <a href="snake.html" target="_blank" class="card">Snake Game</a>
+      <a href="calculator.html" target="_blank" class="card">Calculator</a>
+      <a href="https://www.blender.org/" target="_blank" class="card">Blender</a>
+    </div>
+  </section>
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/AffaanDelvi" target="_blank">AffaanDelvi</a></p>
+  </section>
+
   <script src="script.js"></script>
 </body>
 </html>
