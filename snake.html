@@ -1,3 +1,55 @@
 <!DOCTYPE html>
-<html><head><title>Snake Game</title></head>
-<body><h1>Snake Game Coming Soon!</h1></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snake Game | Affaan</title>
+<style>
+  body{margin:0; background:#0f0c29; color:#fff; font-family:Poppins,Arial}
+  .wrap{display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; gap:14px}
+  canvas{background:#0b0b18; box-shadow:0 0 18px rgba(111,66,193,.6); border-radius:12px}
+  .btn{background:linear-gradient(135deg,#6f42c1,#ff4c29); color:#fff; padding:10px 14px; border:none; border-radius:10px; cursor:pointer}
+</style></head>
+<body>
+  <div class="wrap">
+    <h2>Snake Game</h2>
+    <canvas id="c" width="480" height="480"></canvas>
+    <button id="r" class="btn">Restart</button>
+  </div>
+<script>
+const canvas=document.getElementById('c'), ctx=canvas.getContext('2d');
+const box=20, size=480; let snake,dir,food,timer;
+function init(){
+  snake=[{x:10*box,y:10*box}]; dir='RIGHT';
+  food={x:Math.floor(Math.random()*((size/box)))*box, y:Math.floor(Math.random()*((size/box)))*box};
+  if(timer) clearInterval(timer); timer=setInterval(update,110);
+}
+function rect(x,y,c){ctx.fillStyle=c; ctx.fillRect(x,y,box-2,box-2);}
+function update(){
+  ctx.fillStyle='#0b0b18'; ctx.fillRect(0,0,size,size);
+  rect(food.x,food.y,'#e74c3c');
+  const head={...snake[0]};
+  if(dir==='LEFT') head.x-=box;
+  if(dir==='RIGHT') head.x+=box;
+  if(dir==='UP') head.y-=box;
+  if(dir==='DOWN') head.y+=box;
+  if(head.x<0||head.x>=size||head.y<0||head.y>=size || snake.some(s=>s.x===head.x&&s.y===head.y)){
+    clearInterval(timer);
+    ctx.fillStyle='rgba(0,0,0,.7)'; ctx.fillRect(0,size/2-30,size,60);
+    ctx.fillStyle='#fff'; ctx.textAlign='center'; ctx.font='20px Poppins,Arial';
+    ctx.fillText('Game Over. Press Restart.', size/2, size/2+6);
+    return;
+  }
+  snake.unshift(head);
+  if(head.x===food.x && head.y===food.y){
+    food={x:Math.floor(Math.random()*((size/box)))*box, y:Math.floor(Math.random()*((size/box)))*box};
+  } else snake.pop();
+  snake.forEach((s,i)=>rect(s.x,s.y, i?'#9be7ff':'#00d9ff'));
+}
+window.addEventListener('keydown', e=>{
+  if(e.key==='ArrowLeft'&&dir!=='RIGHT')dir='LEFT';
+  else if(e.key==='ArrowRight'&&dir!=='LEFT')dir='RIGHT';
+  else if(e.key==='ArrowUp'&&dir!=='DOWN')dir='UP';
+  else if(e.key==='ArrowDown'&&dir!=='UP')dir='DOWN';
+});
+document.getElementById('r').addEventListener('click', init);
+init();
+</script>
+</body></html>
