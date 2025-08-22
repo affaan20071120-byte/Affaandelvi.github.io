@@ -1,55 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Scientific Calculator</title>
-<style>
-body { display:flex; justify-content:center; align-items:center; height:100vh; background:black; margin:0;}
-.calculator { background:#111; padding:20px; border-radius:12px; box-shadow:0 0 20px cyan;}
-#display { width:220px; height:40px; margin-bottom:15px; text-align:right; padding:10px; font-size:18px; border:none; border-radius:8px;}
-button { width:50px; height:50px; margin:5px; font-size:16px; border:none; border-radius:8px; background:#222; color:white; box-shadow:0 0 10px cyan; transition:0.3s;}
-button:hover { background:#333; box-shadow:0 0 20px cyan;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator</title>
+  <style>
+    body { background:black; color:white; display:flex; justify-content:center; align-items:center; height:100vh; }
+    .calculator { background:#222; padding:20px; border-radius:15px; box-shadow:0 0 20px cyan; }
+    input { width:100%; margin-bottom:10px; padding:10px; font-size:20px; border:none; text-align:right; }
+    .buttons { display:grid; grid-template-columns: repeat(5, 1fr); gap:10px; }
+    button { padding:15px; font-size:18px; border:none; border-radius:8px; background:#333; color:white; box-shadow:0 0 10px #0ff; }
+    button:hover { background:#555; }
+  </style>
 </head>
 <body>
-<div class="calculator">
-<input type="text" id="display" disabled>
-<div>
-<button onclick="clr()">C</button>
-<button onclick="del()">Del</button>
-<button onclick="insert('/')">/</button>
-<button onclick="insert('*')">*</button>
-</div>
-<div>
-<button onclick="insert('7')">7</button>
-<button onclick="insert('8')">8</button>
-<button onclick="insert('9')">9</button>
-<button onclick="insert('-')">-</button>
-</div>
-<div>
-<button onclick="insert('4')">4</button>
-<button onclick="insert('5')">5</button>
-<button onclick="insert('6')">6</button>
-<button onclick="insert('+')">+</button>
-</div>
-<div>
-<button onclick="insert('1')">1</button>
-<button onclick="insert('2')">2</button>
-<button onclick="insert('3')">3</button>
-<button onclick="calc()">=</button>
-</div>
-<div>
-<button onclick="insert('0')">0</button>
-<button onclick="insert('.')">.</button>
-<button onclick="insert('Math.sqrt(')">√</button>
-<button onclick="insert('Math.pow(')">x^y</button>
-</div>
-</div>
-<script>
-let display=document.getElementById('display');
-function insert(num){ display.value+=num; }
-function clr(){ display.value=''; }
-function del(){ display.value=display.value.slice(0,-1); }
-function calc(){ try{ display.value=eval(display.value);}catch(e){ display.value='Error'; }}
-</script>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="append('(')">(</button>
+      <button onclick="append(')')">)</button>
+      <button onclick="append('/')">÷</button>
+      <button onclick="append('*')">×</button>
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('-')">-</button>
+      <button onclick="append('+')">+</button>
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('0')">0</button>
+      <button onclick="append('%')">%</button>
+      <button onclick="append('Math.sin(')">sin</button>
+      <button onclick="append('Math.cos(')">cos</button>
+      <button onclick="append('Math.tan(')">tan</button>
+      <button onclick="append('Math.log10(')">log</button>
+      <button onclick="append('Math.log(')">ln</button>
+      <button onclick="append('Math.PI')">π</button>
+      <button onclick="append('Math.E')">e</button>
+      <button onclick="append('Math.sqrt(')">√</button>
+      <button onclick="append('Math.pow(')">x^y</button>
+      <button onclick="toggleDegRad()">Deg/Rad</button>
+    </div>
+  </div>
+  <script>
+    let display=document.getElementById('display');
+    let isDeg=true;
+    function append(val){display.value+=val;}
+    function clearDisplay(){display.value='';}
+    function calculate(){
+      try{display.value=eval(display.value);}catch{display.value='Error';}
+    }
+    function toggleDegRad(){
+      isDeg=!isDeg; alert("Mode: "+(isDeg?"Degrees":"Radians"));
+    }
+    Math.sin=function(x){return isDeg?Math.__sin(x*Math.PI/180):Math.__sin(x);}
+    Math.cos=function(x){return isDeg?Math.__cos(x*Math.PI/180):Math.__cos(x);}
+    Math.tan=function(x){return isDeg?Math.__tan(x*Math.PI/180):Math.__tan(x);}
+    Math.__sin=Math.sin; Math.__cos=Math.cos; Math.__tan=Math.tan;
+  </script>
 </body>
 </html>

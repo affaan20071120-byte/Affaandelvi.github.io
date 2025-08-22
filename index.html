@@ -3,84 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affaan Portfolio v222</title>
+  <title>Affaan Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="stars"></canvas>
-
-  <!-- Sidebar Menu -->
-  <nav class="sidebar">
-    <button class="menu-toggle">☰</button>
-    <ul class="menu">
-      <li><a href="#about" class="menu-link red-glow">About Me</a></li>
-      <li><a href="#education" class="menu-link blue-glow">Education</a></li>
-      <li><a href="#skills" class="menu-link yellow-glow">Skills</a></li>
-      <li><a href="#projects" class="menu-link green-glow">Projects</a></li>
-      <li><a href="#snake" class="menu-link purple-glow">Snake Game</a></li>
-      <li><a href="#calculator" class="menu-link cyan-glow">Calculator</a></li>
-      <li><a href="#contact" class="menu-link white-glow">Contact</a></li>
-    </ul>
-  </nav>
+  <canvas id="bg"></canvas>
+  <header>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <nav id="sideMenu">
+      <a href="#about">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
   <main>
-    <header>
-      <h1 class="glow-name">Affaan</h1>
-    </header>
+    <section id="intro">
+      <h1 class="glow">Affaan</h1>
+      <p class="subtitle">Son of Ahmed</p>
+    </section>
 
-    <section id="about" class="card">
+    <section id="about" class="box">
       <h2>About Me</h2>
-      <p>I am an aspiring Computer Science student passionate about software development, problem-solving, and learning new technologies. My interests lie in creating interactive projects, experimenting with GUIs, and exploring fields like AI, databases, and full-stack development.</p>
+      <p>I am an aspiring Computer Science student passionate about technology, coding, and problem solving. 
+      I started programming in Python from Grade 9 and have since expanded into databases, web design, and creative 3D tools like Blender. 
+      My focus is on building innovative projects while continuously learning and exploring new technologies.</p>
     </section>
 
-    <section id="education" class="card">
+    <section id="education" class="box">
       <h2>Education</h2>
-      <p>Currently in Class 12 (2024 - 2025)</p>
-      <p>Class 10: Overall 86% | Maths: 93% | Science: 90%</p>
+      <p>Currently in Class 12 (2024 - 2025)<br>
+      Class 10: Overall 86% (Maths: 93%, Science: 90%)</p>
     </section>
 
-    <section id="skills" class="card">
+    <section id="skills" class="box">
       <h2>Skills</h2>
-      <div class="skills-container">
-        <div class="skill-card python">
-          <img src="https://www.python.org/static/community_logos/python-logo.png" alt="Python Logo">
-          <p>Python</p>
-        </div>
-        <div class="skill-card blender">
-          <img src="https://download.blender.org/branding/community/blender_community_badge_white.png" alt="Blender Logo">
-          <p>Blender</p>
-        </div>
-        <div class="skill-card mysql">
-          <img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="MySQL Logo">
-          <p>MySQL</p>
-        </div>
-        <div class="skill-card css">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS3 Logo">
-          <p>CSS</p>
-        </div>
+      <div class="skills-grid">
+        <a href="https://www.python.org" target="_blank" class="skill-card glow-python">
+          <img src="assets/python.png" alt="Python">
+          <p>Python (using since Grade 9)</p>
+        </a>
+        <a href="https://www.mysql.com" target="_blank" class="skill-card glow-mysql">
+          <img src="assets/mysql.png" alt="MySQL">
+          <p>MySQL (databases and queries)</p>
+        </a>
+        <a href="https://www.blender.org" target="_blank" class="skill-card glow-blender">
+          <img src="assets/blender.png" alt="Blender">
+          <p>Blender (3D models & creativity)</p>
+        </a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="skill-card glow-css">
+          <img src="assets/css3.png" alt="CSS3">
+          <p>CSS (design & styling)</p>
+        </a>
       </div>
     </section>
 
-    <section id="projects" class="card">
+    <section id="projects" class="box">
       <h2>Projects</h2>
       <ul>
-        <li>Snake Game</li>
-        <li>Scientific Calculator</li>
-        <li>More projects coming soon...</li>
+        <li><a href="games/snake.html" target="_blank">Snake Game</a></li>
+        <li><a href="games/calculator.html" target="_blank">Scientific Calculator</a></li>
       </ul>
+      <p>More projects coming soon...</p>
     </section>
 
-    <section id="snake" class="card">
-      <h2>Snake Game</h2>
-      <iframe src="snake.html"></iframe>
-    </section>
-
-    <section id="calculator" class="card">
-      <h2>Scientific Calculator</h2>
-      <iframe src="calculator.html"></iframe>
-    </section>
-
-    <section id="contact" class="card">
+    <section id="contact" class="box">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
       <p>GitHub: <a href="https://affaandelvi.github.io" target="_blank">AffaanDelvi</a></p>
