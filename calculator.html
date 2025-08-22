@@ -1,39 +1,49 @@
+
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculator | Affaan</title>
-<style>
-  body{margin:0; background:#302b63; color:#fff; font-family:Poppins,Arial; display:flex; min-height:100vh; align-items:center; justify-content:center}
-  .calc{background:rgba(0,0,0,.4); padding:18px; border-radius:14px; box-shadow:0 0 24px rgba(111,66,193,.5); width:min(360px,90vw)}
-  input{width:100%; height:56px; font-size:22px; text-align:right; padding:8px 10px; border:none; border-radius:10px; background:#121222; color:#eaeafe; margin-bottom:8px}
-  .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px}
-  button{height:48px; font-size:18px; border-radius:10px; border:1px solid rgba(255,255,255,.08); background:#1a1a2e; color:#eaeafe; cursor:pointer; transition:.2s}
-  button:hover{background:#24244a}
-  .wide{grid-column:span 2}
-</style></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculator</title>
+  <style>
+    body { background:#111; color:white; font-family:sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; }
+    .calc { background:#222; padding:20px; border-radius:12px; }
+    input { width:100%; margin-bottom:10px; height:40px; font-size:20px; text-align:right; }
+    button { width:60px; height:60px; margin:5px; font-size:18px; }
+  </style>
+</head>
 <body>
   <div class="calc">
-    <input type="text" id="d" placeholder="0" disabled/>
-    <div class="grid">
-      <button data-k="C">C</button><button data-k="/">/</button><button data-k="*">*</button><button data-k="DEL">DEL</button>
-      <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button><button data-k="-">-</button>
-      <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button><button data-k="+">+</button>
-      <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button><button data-k="=">=</button>
-      <button class="wide" data-k="0">0</button><button data-k=".">.</button>
+    <input type="text" id="display" disabled />
+    <div>
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="append('/')">/</button>
+      <button onclick="append('*')">*</button>
+      <button onclick="append('-')">-</button>
+    </div>
+    <div>
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('+')">+</button>
+    </div>
+    <div>
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="calculate()">=</button>
+    </div>
+    <div>
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('0')">0</button>
     </div>
   </div>
 <script>
-const d=document.getElementById('d');
-function append(v){ d.value=(d.value==='0'?'':d.value)+v; }
-function clearD(){ d.value='0'; }
-function del(){ d.value=d.value.length? d.value.slice(0,-1):'0'; }
-function calc(){ try{ d.value=String(eval(d.value||'0')); }catch(e){ d.value='Error'; } }
-d.value='0';
-document.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
-  const k=b.dataset.k;
-  if(k==='C') return clearD();
-  if(k==='DEL') return del();
-  if(k==='=') return calc();
-  append(k);
-}));
+  const display = document.getElementById('display');
+  function append(val){ display.value += val; }
+  function clearDisplay(){ display.value = ''; }
+  function calculate(){ display.value = eval(display.value); }
 </script>
-</body></html>
+</body>
+</html>

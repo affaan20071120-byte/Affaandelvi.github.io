@@ -2,133 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Affaan | Portfolio</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Affaan Delvi Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Particle Background -->
-  <canvas id="particles"></canvas>
+  <!-- Vertical Menu -->
+  <nav class="sidebar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="logo-wrap">
-      <img src="assets/images/menu.png" alt="Affaan Logo" class="logo"/>
-      <h1>Affaan</h1>
-      <p class="tag">Computer Science Student</p>
-    </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </aside>
+  <div id="particles-js"></div>
 
-  <!-- Main content -->
-  <main class="content">
-    <!-- About -->
-    <section id="about" class="card reveal">
-      <h2>About Me</h2>
-      <p><strong>Affaan (the son of Ahmed)</strong> — an aspiring computer science student with a strong foundation in programming, data structures, and software development. I love solving complex problems and building innovative solutions that blend logic with creativity. I'm also good at GUI development.</p>
+  <main>
+    <!-- About Section -->
+    <section id="about" class="box">
+      <h1>About Me</h1>
+      <p>Hi, I am <strong>Affaan (the son of Ahmed)</strong>. I am passionate about Computer Science and love building interactive applications and GUIs.</p>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="card reveal">
-      <h2>Skills</h2>
-      <p>I’m good in <b>Python</b> and <b>SQL</b>, with creative work in <b>Blender</b>, and solid styling using <b>CSS</b> and <b>HTML</b>.</p>
-      <div class="skills">
-        <a href="https://www.python.org" target="_blank" rel="noopener">
-          <img src="assets/images/python.png" alt="Python" class="skill-icon"/>
-        </a>
-        <a href="https://www.blender.org" target="_blank" rel="noopener">
-          <img src="assets/images/blender.png" alt="Blender" class="skill-icon"/>
-        </a>
-        <a href="https://www.w3.org/TR/CSS/" target="_blank" rel="noopener">
-          <img src="assets/images/css3.png" alt="CSS3" class="skill-icon"/>
-        </a>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">
-          <img src="assets/images/html.png" alt="HTML" class="skill-icon"/>
-        </a>
-        <img src="assets/images/dragon.png" alt="Dragon Logo" class="skill-icon dragon"/>
-      </div>
-      <div class="skill-links note">
-        Clicking icons opens official sites in a new tab.
-      </div>
+    <!-- Education Section -->
+    <section id="education" class="box">
+      <h1>Education</h1>
+      <p>Currently in <b>12th (2024 - 2025)</b></p>
+      <p>10th Overall: 86% | Maths: 93% | Science: 90%</p>
     </section>
 
-    <!-- Education -->
-    <section id="education" class="card reveal">
-      <h2>Education</h2>
-      <ul class="edu-list">
-        <li><b>12th Grade</b> — <em>Currently pursuing (2024–2025)</em></li>
-        <li><b>10th Grade</b> — Overall: <b>86%</b> | Maths: <b>93%</b> | Science: <b>90%</b></li>
-      </ul>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="card reveal">
-      <h2>Projects</h2>
-
-      <!-- Snake Game -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>🐍 Snake Game (Web)</h3>
-          <div class="actions">
-            <a class="btn" href="projects/snake.html" target="_blank" rel="noopener">Open in New Tab</a>
-            <button id="snake-restart" class="btn ghost">Restart</button>
-          </div>
+    <!-- Skills Section -->
+    <section id="skills" class="box">
+      <h1>Skills</h1>
+      <div class="skills-container">
+        <div class="card glow">
+          <img src="images/python.png" alt="Python">
+          <p>Good at Python - including GUI and projects</p>
         </div>
-        <canvas id="snakeCanvas" width="420" height="420"></canvas>
-      </div>
-
-      <!-- Calculator -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>🧮 Calculator (Web)</h3>
-          <a class="btn" href="projects/calculator.html" target="_blank" rel="noopener">Open in New Tab</a>
+        <div class="card glow">
+          <img src="images/Css3.png" alt="CSS3">
+          <p>Skilled in CSS3 for modern web design</p>
         </div>
-        <div class="calc">
-          <input type="text" id="display" placeholder="0" disabled />
-          <div class="grid">
-            <button data-k="C">C</button>
-            <button data-k="/">/</button>
-            <button data-k="*">*</button>
-            <button data-k="DEL">DEL</button>
-
-            <button data-k="7">7</button>
-            <button data-k="8">8</button>
-            <button data-k="9">9</button>
-            <button data-k="-">-</button>
-
-            <button data-k="4">4</button>
-            <button data-k="5">5</button>
-            <button data-k="6">6</button>
-            <button data-k="+">+</button>
-
-            <button data-k="1">1</button>
-            <button data-k="2">2</button>
-            <button data-k="3">3</button>
-            <button data-k="=">=</button>
-
-            <button class="wide" data-k="0">0</button>
-            <button data-k=".">.</button>
-          </div>
+        <div class="card glow">
+          <img src="images/35c7a9b4-46f7-4c63-b29a-2c81fa1d1669.png" alt="Blender">
+          <p>Good in Blender - 3D Modelling</p>
+        </div>
+        <div class="card glow">
+          <img src="images/5e15f391-e9c4-4938-bbb7-0759df13f3af.png" alt="Dragon">
+          <p>Creative projects with unique dragon themes</p>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="card reveal">
-      <h2>Contact</h2>
+    <!-- Projects Section -->
+    <section id="projects" class="box">
+      <h1>Projects</h1>
+      <div class="projects-container">
+        <a href="projects/calculator.html" target="_blank" class="card glow">Calculator</a>
+        <a href="projects/snake.html" target="_blank" class="card glow">Snake Game</a>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="box">
+      <h1>Contact</h1>
       <p>Email: <a href="mailto:affaan20071120@gmail.com">affaan20071120@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/AffaanDelvi" target="_blank" rel="noopener">github.com/AffaanDelvi</a></p>
+      <p>GitHub: <a href="https://github.com/Affaandelvi" target="_blank">AffaanDelvi</a></p>
     </section>
-
-    <footer class="footer">© 2025 Affaan Portfolio</footer>
   </main>
 
-  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
